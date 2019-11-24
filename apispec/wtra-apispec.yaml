@@ -1,0 +1,219 @@
+openapi: 3.0.0
+info:
+  title: WTra
+  description: This API can be used for traffic sign detection and recognition
+  contact:
+    email: dan.f.cazacu@info.uaic.ro
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/danCazacu/WTra/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /video/upload:
+    post:
+      summary: Upload a video
+      description: Use this endpoint to upload a video that will be processed
+      parameters:
+      - name: token
+        in: header
+        description: API token to authorize the request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: string
+              format: binary
+      responses:
+        201:
+          description: File uploaded succesfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_201'
+        403:
+          description: Not authorized for the use of API
+  /video/result/{id}:
+    get:
+      summary: Get processed video result
+      description: This endpoint will return information detected in the video uploaded
+        previouslly
+      parameters:
+      - name: token
+        in: header
+        description: API token to authorize the request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Fetch the result for the video with this id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Video processed. Here are the results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+        202:
+          description: This request has been accepted for processing but has not been
+            processed yet
+        403:
+          description: Not authorized for the use of API
+        404:
+          description: No video exists with the specified id
+        406:
+          description: Unsupported accept header
+  /sign/{signName}:
+    get:
+      summary: Retireve sign info by name
+      description: Use this enpoint to retireve information about a traffic sign
+      parameters:
+      - name: signName
+        in: path
+        description: Sign name to be retireved
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Sign found. Here is the information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSignResponse'
+        404:
+          description: No sign exists with the specified name
+        406:
+          description: Unsupported accept header
+  /signs:
+    get:
+      summary: 'Retireve all signs info '
+      description: Use this enpoint to retireve information about a all traffic signs
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSignsResponse'
+        404:
+          description: No sign exists with the specified name
+        406:
+          description: Unsupported accept header
+components:
+  schemas:
+    GetAllSignsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/GetAllSignsResponse_inner'
+    GetSignResponse:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetAllSignsResponse_inner_entries'
+        isA:
+          type: string
+          description: dbpedia alternative
+          example: http://dbpedia.org/page/Traffic_sign
+    ResultResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Video unique id
+        length:
+          type: integer
+          description: Video lengths in seconds
+          example: 36
+        signs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultResponse_signs'
+    inline_response_201:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Generated unique id which will be used to retrieve the results
+            at /video/result
+        resultAt:
+          type: string
+          description: Points to where the result can be retrieved
+          example: /video/result/{id}
+    GetAllSignsResponse_inner_regulations:
+      type: object
+      properties:
+        country:
+          type: string
+          example: Romania
+          default: Romania
+        rules:
+          type: string
+          example: '["When you see this sign you have to give way to other vehicles","You
+            are subject to have your licence suspended if you do not respect this
+            sign"]'
+    GetAllSignsResponse_inner_entries:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Detailed description about this traffic sign
+        regulations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetAllSignsResponse_inner_regulations'
+        image:
+          type: string
+          description: URL to a image representing this sign
+    GetAllSignsResponse_inner:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Stop
+        url:
+          type: string
+          example: /sign/Stop
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetAllSignsResponse_inner_entries'
+        isA:
+          type: string
+          description: dbpedia alternative
+          example: http://dbpedia.org/page/Traffic_sign
+    ResultResponse_signs:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Sign name
+          example: Stop
+        timestamp:
+          type: string
+          description: Video timestamp for when this sign was found in format [seconds:miliseconds]
+          example: 22:245
+        more:
+          type: string
+          description: 'More info at: /sign/{name}'
+          example: /sign/Stop
+      description: Detection list
