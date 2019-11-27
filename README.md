@@ -5,4 +5,6 @@
   
 ### You can check our progress for this project here: https://andreeaprodan.github.io/
 
+### Personal thoughts: https://dancazacu.github.io/
+
 ### Swagger API Spec -- https://app.swaggerhub.com/apis-docs/danCazacu/WTra/1.0.0
