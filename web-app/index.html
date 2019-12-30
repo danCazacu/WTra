@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta name="google-signin-client_id" content="625903979283-gihroqr75e0u0ki28v5k2j3eoimsu718.apps.googleusercontent.com">
+	<meta charset="UTF-8">
     <title>WTra</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css'>
     <link rel="stylesheet" href="./style.css">
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form name="signInForm">
+        <form>
             <h1>Create Account</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
+            <span>Use your email for registration</span>
             <input type="text" placeholder="Name"/>
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password"/>
@@ -28,9 +24,9 @@
         <form id="loginForm">
             <h1>Sign in</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <div class="social"><i class="fab fa-facebook-f"></i></div>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="social"><i class="fab fa-linkedin-in"></i></div>
             </div>
             <span>or use your account</span>
             <input id="signInEmail" type="email" placeholder="Email"/>
@@ -56,10 +52,10 @@
 </div>
 
 <footer>
-
+    <script src="./script.js"></script>
+    <script src="./gauth.js"></script>
+    <script>signOut()</script>
 </footer>
-
-<script src="./script.js"></script>
 
 </body>
 </html>

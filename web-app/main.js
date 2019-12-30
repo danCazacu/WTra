@@ -11,4 +11,8 @@ function highlight(button) {
     about.className = "inactive";
     logout.className = "inactive";
     button.className = "active";
+    if(button === logout){
+        document.cookie = "logout=true";
+        document.location = "index.html";
+    }
 }

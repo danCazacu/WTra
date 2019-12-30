@@ -15,7 +15,6 @@ proceedSignIn.addEventListener('click',()=>{
 	window.location = "main.html";
 	return false;
 });
-
 // function authorize(form) {
 // 	document.getElementById("signInEmail");
 // 	document.getElementById("signInPassword");
