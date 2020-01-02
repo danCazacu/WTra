@@ -25,13 +25,14 @@ public class VideoController {
     public ResponseEntity<String> uploadVideo(HttpServletRequest request, @RequestParam("video") MultipartFile file) {
         ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
         try {
-            FileOutputStream fileWriter = new FileOutputStream(Optional.ofNullable(file.getOriginalFilename()).orElse("video.mov"));
+            FileOutputStream fileWriter = new FileOutputStream(Optional.ofNullable(file.getOriginalFilename()).orElse("video.mov")); //THROWS EXCEPTION WHEN THERE IS NOT FILE BECAUSE IT CANNOT CREATE VIDEO.MOV out of the box
             fileWriter.write(file.getBytes());
             response = new ResponseEntity<>(computeResponse(), HttpStatus.CREATED);
         } catch (IOException e) {
             new ResponseEntity<>("File Upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
             e.printStackTrace();
         }
+
         return response;
     }
 
