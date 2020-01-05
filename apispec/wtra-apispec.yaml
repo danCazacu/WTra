@@ -9,22 +9,22 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/danCazacu/WTra/1.0.0
-  description: SwaggerHub API Auto Mocking
+  - url: https://virtserver.swaggerhub.com/danCazacu/WTra/1.0.0
+    description: SwaggerHub API Auto Mocking
 paths:
   /video/upload:
     post:
       summary: Upload a video
       description: Use this endpoint to upload a video that will be processed
       parameters:
-      - name: token
-        in: header
-        description: API token to authorize the request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: token
+          in: header
+          description: API token to authorize the request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       requestBody:
         content:
           multipart/form-data:
@@ -46,22 +46,22 @@ paths:
       description: This endpoint will return information detected in the video uploaded
         previouslly
       parameters:
-      - name: token
-        in: header
-        description: API token to authorize the request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Fetch the result for the video with this id
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: integer
+        - name: token
+          in: header
+          description: API token to authorize the request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Fetch the result for the video with this id
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
       responses:
         200:
           description: Video processed. Here are the results
@@ -83,14 +83,14 @@ paths:
       summary: Retireve sign info by name
       description: Use this enpoint to retireve information about a traffic sign
       parameters:
-      - name: signName
-        in: path
-        description: Sign name to be retireved
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: signName
+          in: path
+          description: Sign name to be retireved
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         200:
           description: Sign found. Here is the information

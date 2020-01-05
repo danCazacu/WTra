@@ -1,16 +1,16 @@
 function onSignIn(googleUser) {
-    if(getCookie("logout")==="true"){
+    if (getCookie("logout") === "true") {
         signOut();
     }
     var profile = googleUser.getBasicProfile();
-    if(profile) {
+    if (profile) {
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         window.location = "main.html";
         document.cookie = profile;
-    }else {
+    } else {
         document.location = "index.html";
     }
 }

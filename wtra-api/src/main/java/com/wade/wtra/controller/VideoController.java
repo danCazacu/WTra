@@ -20,15 +20,14 @@ import java.util.Optional;
 public class VideoController {
 
 
-
     @PostMapping(value = "/upload", produces = "application/json")
     public ResponseEntity<String> uploadVideo(HttpServletRequest request, @RequestParam("video") MultipartFile file) {
         ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
         try {
-            FileOutputStream fileWriter = new FileOutputStream(Optional.ofNullable(file.getOriginalFilename()).orElse("video.mov")); //THROWS EXCEPTION WHEN THERE IS NOT FILE BECAUSE IT CANNOT CREATE VIDEO.MOV out of the box
+//            FileOutputStream fileWriter = new FileOutputStream(Optional.ofNullable(file.getOriginalFilename()).orElse("video.mov")); //THROWS EXCEPTION WHEN THERE IS NOT FILE BECAUSE IT CANNOT CREATE VIDEO.MOV out of the box
             //fileWriter.write(file.getBytes()); disabled for now, should write to S3
             response = new ResponseEntity<>(computeResponse(), HttpStatus.CREATED);
-        } catch (IOException e) {
+        } catch (Exception e) {
             new ResponseEntity<>("File Upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
             e.printStackTrace();
         }
@@ -36,11 +35,11 @@ public class VideoController {
         return response;
     }
 
-    private String computeResponse(){
+    private String computeResponse() {
         Map<String, Object> jsonBody = new HashMap<>();
-        jsonBody.put("success",true);
-        jsonBody.put("resultAt","/video/result/{id}");
-        jsonBody.put("id","{id}");
+        jsonBody.put("success", true);
+        jsonBody.put("resultAt", "/video/result/{id}");
+        jsonBody.put("id", "{id}");
         Gson gson = new Gson();
         return gson.toJson(jsonBody);
     }

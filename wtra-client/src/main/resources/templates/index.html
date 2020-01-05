@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta name="google-signin-client_id" content="625903979283-gihroqr75e0u0ki28v5k2j3eoimsu718.apps.googleusercontent.com">
-	<meta charset="UTF-8">
+    <meta name="google-signin-client_id"
+          content="625903979283-gihroqr75e0u0ki28v5k2j3eoimsu718.apps.googleusercontent.com">
+    <meta charset="UTF-8">
     <title>WTra</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css'>
     <link rel="stylesheet" href="./style.css">
@@ -21,7 +22,7 @@
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form id="loginForm">
+        <form action="/home" id="loginForm">
             <h1>Sign in</h1>
             <div class="social-container">
                 <div class="social"><i class="fab fa-facebook-f"></i></div>
@@ -29,10 +30,10 @@
                 <div class="social"><i class="fab fa-linkedin-in"></i></div>
             </div>
             <span>or use your account</span>
-            <input id="signInEmail" type="email" placeholder="Email"/>
-            <input id="signInPassword" type="password" placeholder="Password"/>
+            <input name="signInEmail" id="signInEmail" type="email" placeholder="Email"/>
+            <input name="signInPassword" id="signInPassword" type="password" placeholder="Password"/>
             <a href="#">Forgot your password?</a>
-            <button id="proceedSignIn">Sign In</button>
+            <button id="signInButton">Sign In</button>
         </form>
     </div>
     <div class="overlay-container">
