@@ -1,12 +1,10 @@
 package com.wade.wtra.controller;
 
 import com.google.gson.Gson;
+import com.wade.wtra.service.VideosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +15,11 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-public class VideoController {
+public class VideosController {
 
+    private VideosService service = new VideosService();
 
-    @PostMapping(value = "/upload", produces = "application/json")
+    @PostMapping(value = "/videos", produces = "application/json")
     public ResponseEntity<String> uploadVideo(HttpServletRequest request, @RequestParam("video") MultipartFile file) {
         ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
         try {
@@ -38,9 +37,15 @@ public class VideoController {
     private String computeResponse() {
         Map<String, Object> jsonBody = new HashMap<>();
         jsonBody.put("success", true);
-        jsonBody.put("resultAt", "/video/result/{id}");
+        jsonBody.put("resultAt", "/videos/{id}");
         jsonBody.put("id", "{id}");
         Gson gson = new Gson();
         return gson.toJson(jsonBody);
+    }
+
+    @GetMapping(value = "/videos/{id}")
+    public ResponseEntity<String> getVideoResult(HttpServletRequest request, @PathVariable("id") String id){
+        ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
+        return response;
     }
 }

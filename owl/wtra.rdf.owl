@@ -1,0 +1,1291 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/danCazacu/WTra#"
+     xml:base="https://github.com/danCazacu/WTra"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:WTra="https://github.com/danCazacu/WTra#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://github.com/danCazacu/WTra"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#rule -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/danCazacu/WTra#rule">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign">
+        <rdfs:comment>The traffic signs are located on the side or top of the road. They give directions on how we should behave on the road, so that the traffic can proceed safely and smoothly. Everyone must know the traffic signs!</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Information_Sign -->
+
+    <owl:Class rdf:about="https://github.com/danCazacu/WTra#Information_Sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:comment>The information signs give you more information about the start (and end) of a kind of traffic situation.</rdfs:comment>
+        <rdfs:label>Information Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_Sign -->
+
+    <owl:Class rdf:about="https://github.com/danCazacu/WTra#Mandatory_Sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:comment>The mandatory signs impose an obligation/command that road users must comply with.</rdfs:comment>
+        <rdfs:label>Mandatory Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Priority_Sign -->
+
+    <owl:Class rdf:about="https://github.com/danCazacu/WTra#Priority_Sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:comment>The priority signs have an influence on the priority rules. They indicate who has priority and who should give priority.</rdfs:comment>
+        <rdfs:label>Priority Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Prohibitory_Sign -->
+
+    <owl:Class rdf:about="https://github.com/danCazacu/WTra#Prohibitory_Sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:comment>The prohibition signs forbid a certain action. They indicate certain actions that road users are not allowed to do.</rdfs:comment>
+        <rdfs:label>Prohibitory Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_Sign -->
+
+    <owl:Class rdf:about="https://github.com/danCazacu/WTra#Warning_Sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dan/ontologies/2020/0/untitled-ontology-6#Traffic_Sign"/>
+        <rdfs:comment>The warning signs are placed to warn road users of a potentially dangerous traffic situation.</rdfs:comment>
+        <rdfs:label>Warning Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_built-up_area -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_built-up_area">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a built-up area. It is placed at the boundary of cities and villages. It notifies drivers that the general rules of a built-up area apply from that point onwards.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_motorway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_motorway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a motorway. It notifies road users that the general rules of a motorway apply from that point onwards.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_priority_road -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_priority_road">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a priority road. You have priority at all following crossroads until the end of the priority road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_residential_area -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_residential_area">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a residential area. It notifies road users that the general rules of a residential area apply from that point onwards.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_tunnel -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_tunnel">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a tunnel.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_zone_for_pedestrians -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_zone_for_pedestrians">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a pedestrian zone.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_a_zone_with_speed_limit -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_a_zone_with_speed_limit">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a zone with a speed limit. On all roads in the zone it’s prohibited to drive faster than indicated.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_an_expressway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_an_expressway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of an expressway. It notifies road users that the general rules of an expressway apply from that point onwards.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Begin_of_zone_where_parking_is_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Begin_of_zone_where_parking_is_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a zone where parking is not allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Buses_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Buses_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where buses are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Cars_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Cars_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where cars are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Crossing_for_pedestrians -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Crossing_for_pedestrians">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates a crossing for pedestrians.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Curve_of_the_main_road -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Curve_of_the_main_road">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdfs:comment>This traffic sign indicates the curve of the main road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Cyclists_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Cyclists_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where cyclists are prohibited. An example of this would be a main road where it is useful to exclude cyclists in order to maximise traffic capacity and prevent accidents.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Detour_for_vehicles_that_are_not_allowed_to_pass. -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Detour_for_vehicles_that_are_not_allowed_to_pass.">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates a detour for vehicles that are not allowed to pass.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Driving_faster_than_indicated_mandatory_minimum_speed -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Driving_faster_than_indicated_mandatory_minimum_speed">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a minimum speed. Drive faster than indicated.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Driving_faster_than_indicated_prohibited_speed_limit -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Driving_faster_than_indicated_prohibited_speed_limit">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a speed limit. Driving faster than indicated is prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Driving_straight_ahead_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Driving_straight_ahead_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that all drivers must drive straight ahead, turning left or right is not allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Driving_straight_ahead_or_turning_right_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Driving_straight_ahead_or_turning_right_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that all drivers must drive straight ahead or turn right. Turning left is not allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_a_lane -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_a_lane">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of a lane. At the end of a lane, drivers must merge with the lane next to it.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_built-up_area -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_built-up_area">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the built-up area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_expressway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_expressway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the expressway.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_minimum_speed -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_minimum_speed">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the minimum speed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_motorway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_motorway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the motorway.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_overtaking_prohibition -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_overtaking_prohibition">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the overtaking prohibition.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_priority_road -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_priority_road">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the priority road. You have no longer priority at the following crossroads.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_residential_area -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_residential_area">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the residential area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_speed_limit -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_speed_limit">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the speed limit.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_tunnel -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_tunnel">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the tunnel</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_zone_for_pedestrians -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_zone_for_pedestrians">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the pedestrian zone.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_zone_where_parking_is_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_zone_where_parking_is_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the zone where parking is prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#End_of_the_zone_with_speed_limit -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#End_of_the_zone_with_speed_limit">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the end of the zone with speed limit.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Entry_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Entry_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where the entry is prohibited in both directions for all road users.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Entry_prohibited_checkpoint -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Entry_prohibited_checkpoint">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a checkpoint.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Entry_prohibited_road_with_one-way_traffic -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Entry_prohibited_road_with_one-way_traffic">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where the entry is prohibited for all drivers.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Give_way_to_all_drivers -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Give_way_to_all_drivers">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rule>Give way to all drivers</rule>
+        <rdfs:comment>This traffic sign warns for a crossroad and indicates who has priority. This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Handcarts_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Handcarts_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where handcarts are prohibited. An example of this would be a narrow road where a slow moving handcart would cause considerable traffic congestion.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Horse_carts_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Horse_carts_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where animal-drawn carts are prohibited. An example of this would be a narrow street where a slow moving cart would cause considerable congestion.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Information_about_the_directions_of_the_roundabout -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Information_about_the_directions_of_the_roundabout">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign gives information about the directions of the roundabout.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Leaving_less_distance_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Leaving_less_distance_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the minimum distance you have to keep between the vehicle before you. So keep a longer distance than indicated on the traffic sign.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_direction_of_the_roundabout -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_direction_of_the_roundabout">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdfs:comment>This traffic sign indicates that you must give way to all drivers on the roundabout. When the roundabout is clear, continue in the direction of the roundabout.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_divided_path_for_pedestrians_and_cyclists -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_divided_path_for_pedestrians_and_cyclists">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a divided path for pedestrians and cyclists.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_lane_for_buses -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_lane_for_buses">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a lane for buses.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_path_for_cyclists -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_path_for_cyclists">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a lane for buses.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_path_for_pedestrians -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_path_for_pedestrians">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a path for pedestrians.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_right -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_right">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that all drivers must turn right, turning left is not allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mandatory_shared_path_for_pedestrians_and_cyclists -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mandatory_shared_path_for_pedestrians_and_cyclists">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a shared path for pedestrians and cyclists.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Mopeds_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Mopeds_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where mopeds are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Motorcycles_and_cars_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Motorcycles_and_cars_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where motorcycles and cars are prohibited. Pedestrians and cyclists are allowed in these places. An example of this would be a market area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Motorcycles_cars_and_horse_carts_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Motorcycles_cars_and_horse_carts_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where motorcycles, cars and horse carts are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Motorcycles_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Motorcycles_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where motorcycles are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#National_speed_limits -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#National_speed_limits">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the national speed limits.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Overtaking_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Overtaking_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where drivers are not allowed to overtake vehicles travelling in the same direction. The traffic sign is only used where overtaking would be very dangerous. Such as at busy crossroads or places where there is a bad record of overtaking accidents.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Overtaking_prohibited_for_trucks -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Overtaking_prohibited_for_trucks">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where truck drivers are not allowed to overtake vehicles travelling in the same direction. The traffic sign is only used where overtaking would be very dangerous. Such as at busy crossroads or places where there is a bad record of overtaking accidents.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Overview_of_the_lanes_and_their_direction -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Overview_of_the_lanes_and_their_direction">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign gives you an overview of the lanes and the their direction. Take the lane that best suits your destination.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Parking_and_stopping_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Parking_and_stopping_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where stopping and waiting is not allowed. It is used where it is essential to ban vehicles from stopping. Such as on heavily-traffic or high-speed roads where stopping would cause congestion and accidents.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Parking_is_allowed -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Parking_is_allowed">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates that parking is allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Parking_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Parking_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where parking is prohibited. The restriction only applies to the side of the road on which the sign is placed. It’s only placed where there would be a serious parking problem such as on a narrow, busy street or too close to a major crossroad.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Parking_prohibited_on_even_dates -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Parking_prohibited_on_even_dates">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>Parking prohibited on even dates</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Passing_left_or_right_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Passing_left_or_right_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that drivers may reach the same destination by proceeding either side of the sign. The traffic sign is used to mark obstructions such as traffic islands or roadworks. It’s used only on places where the traffic will merge again past the obstruction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Passing_right_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Passing_right_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that all drivers must pass the traffic sign on the right. The traffic sign is used to mark obstructions, such as traffic islands or roadworks.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Pedestrians_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Pedestrians_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Recommended_speed -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Recommended_speed">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a recommended speed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Road_narrowing_give_way_to_oncoming_drivers -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Road_narrowing_give_way_to_oncoming_drivers">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a road narrowing where you have to give way to oncoming drivers.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Road_narrowing_oncoming_drivers_have_to_give_way -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Road_narrowing_oncoming_drivers_have_to_give_way">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdfs:comment>This traffic sign indicates there is a road narrowing where oncoming drivers have to give way.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Road_with_one-way_traffic -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Road_with_one-way_traffic">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a road with one-way traffic. It is not allowed to drive in the other direction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Route_to_be_followed_in_order_to_turn_left -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Route_to_be_followed_in_order_to_turn_left">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates the route to be followed in order to turn left.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Section_control -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Section_control">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Information_Sign"/>
+        <rdfs:comment>This traffic sign indicates a section control.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Snow_chains_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Snow_chains_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates the begin of a road where you must use snow chains.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Stop_and_give_way_to_all_drivers -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Stop_and_give_way_to_all_drivers">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a crossroad where visibility is poor or unsafe for drivers to enter the crossroad without stopping. It instructs drivers to bring their vehicles to a complete stop and not proceed until it is safe to do so.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Tractors_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Tractors_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where tractors are prohibited. An example of this would be a main road where it is useful to exclude tractors in order to maximise traffic capacity and prevent accidents.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Trucks_heavier_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Trucks_heavier_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where trucks heavier than indicated are prohibited (max. weight).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Trucks_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Trucks_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where trucks are prohibited. An example of this would be a narrow road where there is difficulty for vehicles wider than cars to pass each other. This traffic sign can also be used to prevent truck nuisance.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Trucks_with_trailer_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Trucks_with_trailer_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where trucks with a trailer are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Turning_around_prohibited_U-turn -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Turning_around_prohibited_U-turn">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where it is prohibited for drivers to reverse their direction by making a U-turn. This will usually be because the manoeuvre is dangerous or will cause congestion.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Turning_left_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Turning_left_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where turning left into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn left would cause traffic congestion.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Turning_right_mandatory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Turning_right_mandatory">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+        <rdfs:comment>This traffic sign indicates that all drivers must turn right, other directions are not allowed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Turning_right_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Turning_right_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where turning right into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn right would cause traffic congestion.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Using_the_horn_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Using_the_horn_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where using the horn is prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_heavier_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_heavier_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles over the gross weight indicated in tonnes are prohibited. It is usually used at bridges and other structures which cannot safely support heavy vehicles. It can also be used to keep heavy trucks off unsuitable roads</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_higher_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_higher_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles over the height will not be able to negotiate the obstruction ahead.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_longer_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_longer_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles over the length indicated are prohibited. An example would be where the geometry of the road ahead is too tight to allow vehicles over the length indicated to pass.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_wider_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_wider_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign a place that vehicles over the width indicated are prohibited on the road ahead because of an obstruction which limits the width of the carriageway.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_with_an_axle_weight_heavier_than_indicated_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_with_an_axle_weight_heavier_than_indicated_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles over the axle weight indicated are prohibited. This will usually be as a result of restrictions on a bridge. It is often more appropriate to specify the maximum safe load of a structure in terms of axle weight rather than laden weight</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_with_dangerous_goods_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_with_dangerous_goods_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles transporting dangerous good are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_with_explosive_materials_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_with_explosive_materials_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles transporting explosive materials are prohibited. It is used in those rare situations where an accidental explosion could have disastrous consequences, such as at or near oil or gas installations or other hazardous sites.This sign is only used when there is a significant risk.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Vehicles_with_polluted_fluids_prohibited -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Vehicles_with_polluted_fluids_prohibited">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+        <rdfs:comment>This traffic sign indicates a place where vehicles transporting polluted fluids are prohibited.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for__a_movable_bridge -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for__a_movable_bridge">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a movable bridge ahead. Barriers and traffic lights are used to block traffic when the bridge goes up.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_bad_road_surface -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_bad_road_surface">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that the road ahead has a defective surface, for example a road with potholes, ridges or sunken areas. The traffic sign is used where it is unsafe to continue at normal speed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_crossing_for_pedestrians -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_crossing_for_pedestrians">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a pedestrian crossing. The traffic sign is used at crossings that are difficult to see or on roads with a high speed. Drivers must give priority to pedestrians on the zebra crossing.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_crossroad_side_roads_on_the_left_and_right -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_crossroad_side_roads_on_the_left_and_right">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a crossroads with side roads from the left and right. You are driving on the main road, drivers on the side roads have to give way.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_curve_to_the_left -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_curve_to_the_left">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a curve to the left ahead. It may be necessary for drivers to reduce their speed significantly, especially when they can’t see how sharp the curve is. Curves which come after a long straight section, or which are very different from other curves on the road, are particularly dangerous.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_curve_to_the_right -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_curve_to_the_right">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a curve to the right ahead. It may be necessary for drivers to reduce their speed significantly, especially when they can’t see how sharp the curve is. Curves which come after a long straight section, or which are very different from other curves on the road, are particularly dangerous.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_danger_with_no_specific_traffic_sign -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_danger_with_no_specific_traffic_sign">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for miscellaneous dangers for which there is no specific traffic sign. For examples: road accidents, flooded roads and roads blocked by fallen trees. It always have a supplementary sign attached that tells drivers of what hazard to expect.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_double_curve_first_left_then_right -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_double_curve_first_left_then_right">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a double curve ahead, first to the left and then to the right. It may be necessary for drivers to reduce their speed significantly, especially when they can’t see how sharp the curves are. This traffic sign is only used where the first curve is right behind the second.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_double_curve_first_right_then_left -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_double_curve_first_right_then_left">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a double curve ahead, first to the right and then to the left. It may be necessary for drivers to reduce their speed significantly, especially when they can’t see how sharp the curves are. This traffic sign is only used where the first curve is right behind the second.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_quayside_or_riverbank -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_quayside_or_riverbank">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a quay and is often used at the banks of rivers and canals. It means that the road passes close to the edge of deep water where there is a danger that vehicles may fall in.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_1_railway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_1_railway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This sign indicates the location of a railroad crossing and is sited close to the railroad. It is used at all railroad crossings whether or not they have barriers.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_barriers -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_barriers">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a railroad crossing ahead with barriers.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_more_than_1_railway -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_with_more_than_1_railway">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This sign indicates the location of a railroad crossing and is sited close to the railroad. It is used at all railroad crossings whether or not they have barriers.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_without_barriers -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_railroad_crossing_without_barriers">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a railroad crossing ahead without barriers</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that the width of the road ahead will suddenly become narrower.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing_on_the_left -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing_on_the_left">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that the width of the road ahead will suddenly become narrower from the left.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing_on_the_right -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_road_narrowing_on_the_right">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This sign warns that the width of the road ahead will suddenly become narrower from the right.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_road_with_two-way_traffic -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_road_with_two-way_traffic">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a road with two-way traffic. It is used where a one-way street changes into a two-way street.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_roundabout -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_roundabout">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a roundabout ahead. This traffic sign will be used where there have been accidents caused by drivers failing to see the roundabout in time to slow down.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_slippery_road_surface -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_slippery_road_surface">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that the road ahead probably has a slippery road surface. Keep the vehicle under extra control and do not make any wild steering movements, especially in curves.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_soft_verge -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_soft_verge">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns drivers that the road ahead has a soft verge. The verge might be worn out, soft, slippery or uneven.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_speed_bump -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_speed_bump">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is a speed bump ahead which is designed to slow traffic. Driving too fast over a speed bump can cause serious damage to the vehicle.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_steep_ascent -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_steep_ascent">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a steep ascent. If necessary, shift a gear back so that the vehicle has enough power to drive up the slope.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_steep_descent -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_steep_descent">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a steep descent. If necessary, reduce a gear so that the vehicle does not drive too quickly of the descent.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_traffic_light -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_traffic_light">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there are traffic lights ahead. Watch out for the traffic light and make sure you can stop on time.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_a_tunnel -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_a_tunnel">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a tunnel.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_accidents -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_accidents">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that accidents could happen. It is also temporarily placed if an accident has happened. Traffic jams are possible.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_an_uncontrolled_crossroad -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_an_uncontrolled_crossroad">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Priority_Sign"/>
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is an uncontrolled crossroad. Drivers must slow down and watch out for oncoming road users.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_cattle_on_the_road -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_cattle_on_the_road">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that cattle could be crossing the road ahead. The traffic sign is used where there are often cattle crossing or moving along a road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_children -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_children">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that this road is often used by children. Slow down and watch out for children playing. The traffic sign is placed near schools and playgrounds.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_crossing_deer -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_crossing_deer">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that deers are likely to be crossing the road ahead. The traffic sign is used where there are often wild animals crossing the road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_cyclists -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_cyclists">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for cyclists on the road. The road ahead has no path for cyclists, so cyclists ride on the road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_falling_rocks -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_falling_rocks">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for falling rocks. The sides along the road are unstable which may result in falling rocks or rocks on the road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_heavy_crosswind -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_heavy_crosswind">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for heavy crosswind and gusts of wind. A gust of wind can make your vehicle more difficult to control or even blow over. The faster you drive, the more influence the wind has on your vehicle.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_loose_chippings_on_the_road_surface -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_loose_chippings_on_the_road_surface">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there are loose stone chips on the road surface ahead. It is used on roads which have been recently gravelled or sealed with stone chippings. It warns drivers to slow down to prevent chippings from being thrown up by the wheels.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_low_flying_aircrafts -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_low_flying_aircrafts">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that the road ahead is crossed by low flying aircrafts. This is usually where a road passes close to the end of a runway. It warns drivers to be prepared for the sudden sight and loud noise of low flying aircrafts.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_roadworks -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_roadworks">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns drivers of a temporary obstruction caused by roadworks in the road ahead. Drivers must slow down and look out for traffic jams. The sign is only used temporary and will be removed when the roadworks are done.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_tractors -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_tractors">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for tractors</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_traffic_jams -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_traffic_jams">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns that there is an increased chance of traffic jams. Keep a safe distance from the vehicle in front of you, because the traffic can suddenly slow down.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/danCazacu/WTra#Warning_for_trams -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/danCazacu/WTra#Warning_for_trams">
+        <rdf:type rdf:resource="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        <rdfs:comment>This traffic sign warns for a tram.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/danCazacu/WTra#Information_Sign"/>
+            <rdf:Description rdf:about="https://github.com/danCazacu/WTra#Mandatory_Sign"/>
+            <rdf:Description rdf:about="https://github.com/danCazacu/WTra#Priority_Sign"/>
+            <rdf:Description rdf:about="https://github.com/danCazacu/WTra#Prohibitory_Sign"/>
+            <rdf:Description rdf:about="https://github.com/danCazacu/WTra#Warning_Sign"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
