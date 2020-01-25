@@ -1,19 +1,19 @@
 package com.wade.wtra.service;
 
 import com.wade.wtra.database.PostgresConnection;
-import org.apache.tomcat.jni.Local;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.Random;
 
 import static com.wade.wtra.controller.LoginController.INVALID_CREDENTIALS;
 
 public class LoginService {
 
     public static final String SESSION = "session";
+    public static final int SESSION_TIMEOUT_MIN = 5;
 
     private static Connection connection = new PostgresConnection().getConnection();
 
@@ -47,7 +47,7 @@ public class LoginService {
     private static void addSession(String session, String email) throws SQLException {
         PreparedStatement st = connection.prepareStatement("UPDATE users SET session = ?,expires = ? WHERE email = ?;");
         st.setString(1, session);
-        st.setString(2, LocalDateTime.now().plusMinutes(1).toString());
+        st.setString(2, LocalDateTime.now().plusMinutes(SESSION_TIMEOUT_MIN).toString());
         st.setString(3, email);
         int result = st.executeUpdate();
         System.out.println("ROWS UPDATED: " + result);
@@ -94,5 +94,17 @@ public class LoginService {
         } else {
             return false;
         }
+    }
+
+    public static String getEmailByToken(String token) throws Exception {
+        if (connection == null)
+            throw new Exception("No database connection. Try later.");
+        PreparedStatement st = connection.prepareStatement("SELECT * FROM users where session = ?");
+        st.setString(1, token);
+        ResultSet rs = st.executeQuery();
+        if (rs.next()) {
+            return rs.getString("email");
+        }
+        throw new Exception("Not logged in");
     }
 }

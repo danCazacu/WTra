@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.wade.wtra.service.LoginService.getEmailByToken;
+import static com.wade.wtra.service.VideoService.EXCEPTION_NOT_FOUND;
+import static com.wade.wtra.service.VideoService.EXCEPTION_NOT_READY;
+
 @RestController
 public class VideosController {
 
@@ -25,7 +29,7 @@ public class VideosController {
             ResponseEntity<String> response = validateToken(request);
             if (response != null) return response;
             String filename = Optional.ofNullable(file.getOriginalFilename()).orElseThrow(() -> new Exception("Invalid file name"));
-            long id = VideoService.add(filename);
+            long id = VideoService.add(filename,getEmailByToken(request.getHeader("token")));
             return new ResponseEntity<>(computeResponse(id), HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,16 +65,16 @@ public class VideosController {
     public ResponseEntity<String> getVideoResult(HttpServletRequest request, @PathVariable("id") String id) {
         ResponseEntity<String> response = validateToken(request);
         if (response != null) return response;
-
         Long videoId = Long.parseLong(id);
         try {
-            VideoService.getNameById(videoId);
+            return new ResponseEntity<>(VideoService.getProcessed(videoId), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<String>("No video with this ID exists", HttpStatus.NOT_FOUND);
+            e.printStackTrace();
+            if(e.getMessage().equals(EXCEPTION_NOT_FOUND))
+                return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+            if(e.getMessage().equals(EXCEPTION_NOT_READY))
+                return new ResponseEntity<>(e.getMessage(), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>("Somethint went wrong", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        if (!VideoService.isProcessed(videoId)) {
-            return new ResponseEntity<String>("Processing not finished for this video", HttpStatus.ACCEPTED);
-        }
-        return new ResponseEntity<String>(VideoService.getProcessed(videoId).toString(), HttpStatus.OK);
     }
 }
