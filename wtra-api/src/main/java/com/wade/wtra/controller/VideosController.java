@@ -1,6 +1,7 @@
 package com.wade.wtra.controller;
 
 import com.google.gson.Gson;
+import com.wade.wtra.service.LoginService;
 import com.wade.wtra.service.VideoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,17 +21,31 @@ public class VideosController {
 
     @PostMapping(value = "/videos", produces = "application/json")
     public ResponseEntity<String> uploadVideo(HttpServletRequest request, @RequestParam("video") MultipartFile file) {
-        ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
         try {
+            ResponseEntity<String> response = validateToken(request);
+            if (response != null) return response;
             String filename = Optional.ofNullable(file.getOriginalFilename()).orElseThrow(() -> new Exception("Invalid file name"));
             long id = VideoService.add(filename);
-            response = new ResponseEntity<>(computeResponse(id), HttpStatus.CREATED);
+            return new ResponseEntity<>(computeResponse(id), HttpStatus.CREATED);
         } catch (Exception e) {
-            new ResponseEntity<>("File Upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
             e.printStackTrace();
+            return new ResponseEntity<>("File Upload Failed. "+e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
 
-        return response;
+    private ResponseEntity<String> validateToken(HttpServletRequest request) {
+        if (request.getHeader("token") == null) {
+            return new ResponseEntity<>("Token not present", HttpStatus.FORBIDDEN);
+        }
+        String token = request.getHeader("token");
+        try {
+            if (!LoginService.validate(token)) {
+                return new ResponseEntity<>("Invalid token. Login at: /login", HttpStatus.FORBIDDEN);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Something went wrong", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return null;
     }
 
     private String computeResponse(long id) {
@@ -44,6 +59,9 @@ public class VideosController {
 
     @GetMapping(value = "/videos/{id}")
     public ResponseEntity<String> getVideoResult(HttpServletRequest request, @PathVariable("id") String id) {
+        ResponseEntity<String> response = validateToken(request);
+        if (response != null) return response;
+
         Long videoId = Long.parseLong(id);
         try {
             VideoService.getNameById(videoId);
@@ -53,6 +71,6 @@ public class VideosController {
         if (!VideoService.isProcessed(videoId)) {
             return new ResponseEntity<String>("Processing not finished for this video", HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<String>(VideoService.getProcessed(videoId).toString(),HttpStatus.OK);
+        return new ResponseEntity<String>(VideoService.getProcessed(videoId).toString(), HttpStatus.OK);
     }
 }
