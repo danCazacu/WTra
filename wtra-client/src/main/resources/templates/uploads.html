@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your uploads</title>
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./table.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+<div class="topnav">
+    <!--    change highlight to some real actions-->
+    <a id="Home" class="active" href="/home" onclick="highlight(this)">Home</a>
+    <a id="Your Uploads" href="/uploads" onclick="highlight(this)">Your Uploads</a>
+    <a id="Contact" href="#contact" onclick="highlight(this)">Contact</a>
+    <a id="About" href="#about" onclick="highlight(this)">About</a>
+    <a id="Logout" href="/login" onclick="highlight(this)">Log out</a>
+</div>
+
+<table>
+    <thead style="background-color: #0C5645;">
+    <tr>
+        <th>Name</th>
+        <th>Data</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="video: ${videos}">
+        <td th:text="${video.key}"></td>
+        <td th:text="${video.value}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<script src="../static/main.js"></script>
+</html>
