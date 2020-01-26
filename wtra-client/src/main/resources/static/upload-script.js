@@ -1,12 +1,12 @@
 const uploadButton = document.getElementById('uploadButton');
 const uploadForm = document.getElementById('uploadForm');
 
-uploadButton.addEventListener('click', () = > {
+uploadButton.addEventListener('click', () => {
     var video = document.getElementById("fileUpload").files[0];
 var req = new XMLHttpRequest();
 var formData = new FormData(uploadForm);
 
-req.open("POST", 'http://wtra-env.rabkqhemjt.eu-west-1.elasticbeanstalk.com/upload');
+req.open("POST", 'http://wtra-api.eu-west-1.elasticbeanstalk.com/videos');
 
 //the code below tries to modifiy some text in UI of the file was uploaded or not,
 // problem is that the events are not called. Meaning that we cannot get the response
