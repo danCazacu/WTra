@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import static com.wade.wtra.controller.LoginController.INVALID_CREDENTIALS;
 
@@ -18,6 +19,7 @@ public class LoginService {
     private static Connection connection = new PostgresConnection().getConnection();
 
     public static String getSessionId(String email, String password) throws Exception {
+        connection = new PostgresConnection().getConnection();
         if (connection == null)
             throw new Exception("No database connection. Try later.");
         PreparedStatement st = connection.prepareStatement("SELECT * FROM users where email=? and password=?");
@@ -32,7 +34,7 @@ public class LoginService {
             } else {
                 String expires = rs.getString("expires");
                 LocalDateTime timeOfExpiration = LocalDateTime.parse(expires);
-                if (timeOfExpiration.isBefore(LocalDateTime.now())) {
+                if (timeOfExpiration.isBefore(LocalDateTime.now(ZoneId.of("Europe/Bucharest")))) {
                     session = getAlphaNumericString(32);
                     addSession(session, email);
                 }
@@ -44,10 +46,13 @@ public class LoginService {
         throw new Exception(INVALID_CREDENTIALS);
     }
 
-    private static void addSession(String session, String email) throws SQLException {
+    private static void addSession(String session, String email) throws Exception {
+        connection = new PostgresConnection().getConnection();
+        if(connection==null)
+            throw new Exception("No database connection");
         PreparedStatement st = connection.prepareStatement("UPDATE users SET session = ?,expires = ? WHERE email = ?;");
         st.setString(1, session);
-        st.setString(2, LocalDateTime.now().plusMinutes(SESSION_TIMEOUT_MIN).toString());
+        st.setString(2, LocalDateTime.now(ZoneId.of("Europe/Bucharest")).plusMinutes(SESSION_TIMEOUT_MIN).toString());
         st.setString(3, email);
         int result = st.executeUpdate();
         System.out.println("ROWS UPDATED: " + result);
@@ -87,7 +92,7 @@ public class LoginService {
         ResultSet rs = st.executeQuery();
         if (rs.next()) {
             LocalDateTime expires = LocalDateTime.parse(rs.getString("expires"));
-            if(expires.isBefore(LocalDateTime.now()))
+            if(expires.isBefore(LocalDateTime.now(ZoneId.of("Europe/Bucharest"))))
                 return false;
             else
                 return true;
