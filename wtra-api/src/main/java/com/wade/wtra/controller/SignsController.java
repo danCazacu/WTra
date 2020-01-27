@@ -22,7 +22,10 @@ public class SignsController {
             return filtered;
 
         try {
-            HttpResponse response = StardogService.execute("select ?sub where { ?sub rdf:type WTra:Priority_Sign }");
+            HttpResponse response = StardogService.execute("select ?sign\n" +
+                    "WHERE{\n" +
+                    "    ?sign rdf:type wtra:Signs .\n" +
+                    "}");
             String body = IOUtils.toString(response.getEntity().getContent());
             return new ResponseEntity<>(body, HttpStatus.OK);
         } catch (Exception e) {
@@ -36,7 +39,16 @@ public class SignsController {
         if (filtered != null)
             return filtered;
 
-        ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
-        return response;
+        try {
+            HttpResponse response = StardogService.execute("select ?country ?signProperty ?signPropertyValue\n" +
+                    "WHERE{\n" +
+                    "    ?country wtra:hasSign wtra:"+name+".\n" +
+                    "    wtra:begin_of_a_priority_road ?signProperty ?signPropertyValue\n" +
+                    "}");
+            String body = IOUtils.toString(response.getEntity().getContent());
+            return new ResponseEntity<>(body, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
