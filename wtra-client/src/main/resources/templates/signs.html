@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Signs</title>
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <style>
+        table, th, td{
+            border: 1px solid #666;
+        }
+        table th, table td{
+            padding: 10px; /* Apply cell padding */
+        }
+
+    </style>
+</head>
+<body>
+<div class="topnav">
+    <!--    change highlight to some real actions-->
+    <a id="home" class="active" href="/home" onclick="highlight(this)">Home</a>
+    <a id="yourUploads" href="/uploads" onclick="highlight(this)">Your Uploads</a>
+    <a id="trafficSigns" href="/signs" onclick="highlight(this)">Traffic Signs</a>
+    <a id="contact" href="#contact" onclick="highlight(this)">Contact</a>
+    <a id="about" href="#about" onclick="highlight(this)">About</a>
+    <a id="logout" href="/login" onclick="highlight(this)">Log out</a>
+</div>
+
+<table>
+    <p th:text="${signs}"></p>
+    <thead style="background-color: #94caff;">
+        <tr>
+            <th>Traffic Sign</th>
+            <th>Traffic Sign Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="sign : ${signs}">
+            <td width="50%">
+                <img th:src="@{${sign.imageLink}}"/><br/>
+                <label style ="color: #0e638d" th:text="${sign.name}"></label><br/><br/>
+                <label style ="color: #3cbb29" th:text="${sign.signDescription} != '' ? 'Description: ' + ${sign.signDescription}"></label><br/><br/>
+                <label style ="color: #b22134" th:text="${sign.regulations}!= '' ? 'Regulations: ' + ${sign.regulations}"></label><br/>
+            </td>
+            <td >
+                <label style ="color: #973165" th:text="${sign.types} != '' ? 'Type : ' + ${sign.types}"></label><br/>
+                <label style ="color: #5da853" th:text="${sign.form} != '' ? 'Form: ' + ${sign.form}"></label><br/>
+                <label style ="color: #77451f" th:text="${sign.backgroundColor} != '' ? 'Background color: ' + ${sign.backgroundColor}"></label><br/>
+                <label style ="color: #4240ff" th:text="${sign.borderColor} != '' ? 'Border color: ' + ${sign.borderColor}"></label><br/>
+                <label style ="color: #1e9876" th:text="${sign.applicableFor} != '' ? 'Applicable to: ' + ${sign.applicableFor}"></label><br/>
+                <label style ="color: #472382" th:text="${sign.countries} != '' ? 'Applicable in countries: ' + ${sign.countries}"></label><br/>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<p th:text="${signsError}" style="color: #ff2f2c"></p>
+
+</body>
+<script src="../static/main.js"></script>
+</html>
