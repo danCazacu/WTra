@@ -2,6 +2,7 @@ package com.wade.wtra.service;
 
 import com.google.gson.Gson;
 import com.wade.wtra.database.PostgresConnection;
+import com.wade.wtra.pojo.VideoPOJO;
 import javafx.util.Pair;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
@@ -156,6 +157,7 @@ public class VideoService {
                 String justSignName = signName.split("#")[1];
                 Map<String, Object> signData = new HashMap<>();
                 signData.put("name", signName);
+                signData.put("moreAt", "/signs/"+signName);
                 response = StardogService.execute("select ?signProperty ?signPropertyValue\n" +
                         "WHERE{\n" +
                         "    wtra:" + justSignName + " ?signProperty ?signPropertyValue\n" +
@@ -194,15 +196,15 @@ public class VideoService {
         throw new Exception("Not logged in");
     }
 
-    public static List<Pair<String, Object>> getVideos(String email) throws Exception {
+    public static List<VideoPOJO> getVideos(String email) throws Exception {
         if (connection == null)
             throw new Exception("No database connection. Try later.");
         PreparedStatement st = connection.prepareStatement("SELECT * FROM videos where email = ?");
         st.setString(1, email);
         ResultSet rs = st.executeQuery();
-        List<Pair<String, Object>> videos = new ArrayList<>();
+        List<VideoPOJO> videos = new ArrayList<>();
         while(rs.next()){
-            videos.add(new Pair<>(rs.getString("name"),rs.getString("id")));
+            videos.add(new VideoPOJO(rs.getString("name"),rs.getString("id")));
         }
         return videos;
     }

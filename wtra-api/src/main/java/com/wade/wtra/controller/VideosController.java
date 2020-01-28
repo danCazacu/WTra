@@ -1,6 +1,7 @@
 package com.wade.wtra.controller;
 
 import com.google.gson.Gson;
+import com.wade.wtra.pojo.VideoPOJO;
 import com.wade.wtra.service.LoginService;
 import com.wade.wtra.service.VideoService;
 import javafx.util.Pair;
@@ -60,7 +61,7 @@ public class VideosController {
         return gson.toJson(jsonBody);
     }
 
-    @GetMapping(value = "/videos/{id}")
+    @GetMapping(value = "/videos/{id}", produces = "application/json")
     public ResponseEntity<String> getVideoResult(HttpServletRequest request, @PathVariable("id") String id) {
         ResponseEntity<String> response = validateToken(request);
         if (response != null) return response;
@@ -77,26 +78,26 @@ public class VideosController {
         }
     }
 
-    @GetMapping(value = "/videos")
+    @GetMapping(value = "/videos", produces = "application/json")
     public ResponseEntity<String> getVideoResult(HttpServletRequest request) {
         ResponseEntity<String> response = validateToken(request);
         if (response != null) return response;
         try {
-            List<Pair<String, Object>> videosFromDatabase = VideoService.getVideos(getEmailByToken(request.getHeader("token")));
+            List<VideoPOJO> videosFromDatabase = VideoService.getVideos(getEmailByToken(request.getHeader("token")));
             Map<String,Object> userVideos = new HashMap<>();
             List<Object> videosList = new ArrayList<>();
             userVideos.put("videos",videosList);
-            for (Pair<String, Object> stringObjectPair : videosFromDatabase) {
+            for (VideoPOJO videoPOJO : videosFromDatabase) {
                 HashMap<String,Object> video = new HashMap<>();
-                video.put("name",stringObjectPair.getKey());
-                video.put("id",stringObjectPair.getValue());
-                video.put("resultAt","/videos/" +stringObjectPair.getValue());
+                video.put("name",videoPOJO.getName());
+                video.put("id",videoPOJO.getId());
+                video.put("resultAt","/videos/" +videoPOJO.getId());
                 videosList.add(video);
             }
             return new ResponseEntity<>(new Gson().toJson(userVideos), HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Something went wrong", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Something went wrong"+e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
