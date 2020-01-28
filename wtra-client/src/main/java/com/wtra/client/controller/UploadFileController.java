@@ -49,7 +49,7 @@ public class UploadFileController {
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);
             headers.add("token", token);
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
-            ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://localhost:5000" + "/videos", requestEntity, String.class);
+            ResponseEntity<String> responseEntity = restTemplate.postForEntity(API_INSTANCE + "/videos", requestEntity, String.class);
             bodyResponse = responseEntity.getBody();
             if(responseEntity.getStatusCode().value() == 201) {
                 model.addAttribute("uploadStatus", "File uploaded succesfully");

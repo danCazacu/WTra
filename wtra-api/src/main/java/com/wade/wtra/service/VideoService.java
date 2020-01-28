@@ -157,7 +157,7 @@ public class VideoService {
                 String justSignName = signName.split("#")[1];
                 Map<String, Object> signData = new HashMap<>();
                 signData.put("name", signName);
-                signData.put("moreAt", "/signs/"+signName);
+                signData.put("moreAt", "/signs/"+justSignName);
                 response = StardogService.execute("select ?signProperty ?signPropertyValue\n" +
                         "WHERE{\n" +
                         "    wtra:" + justSignName + " ?signProperty ?signPropertyValue\n" +
