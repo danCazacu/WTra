@@ -2,6 +2,7 @@ package com.wade.wtra.service;
 
 import com.google.gson.Gson;
 import com.wade.wtra.database.PostgresConnection;
+import javafx.util.Pair;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.json.JSONArray;
@@ -93,8 +94,6 @@ public class VideoService {
             detectedSigns.add(sign);
         }
 
-
-        //TODO COMPLETE MOCK
         String data = new Gson().toJson(json);
 
         connection = new PostgresConnection().getConnection();
@@ -181,5 +180,30 @@ public class VideoService {
             e.printStackTrace();
         }
         return allSignsForThisCountry;
+    }
+
+    public static String getEmailByToken(String token) throws Exception {
+        if (connection == null)
+            throw new Exception("No database connection. Try later.");
+        PreparedStatement st = connection.prepareStatement("SELECT * FROM users where session = ?");
+        st.setString(1, token);
+        ResultSet rs = st.executeQuery();
+        if (rs.next()) {
+            return rs.getString("email");
+        }
+        throw new Exception("Not logged in");
+    }
+
+    public static List<Pair<String, Object>> getVideos(String email) throws Exception {
+        if (connection == null)
+            throw new Exception("No database connection. Try later.");
+        PreparedStatement st = connection.prepareStatement("SELECT * FROM videos where email = ?");
+        st.setString(1, email);
+        ResultSet rs = st.executeQuery();
+        List<Pair<String, Object>> videos = new ArrayList<>();
+        while(rs.next()){
+            videos.add(new Pair<>(rs.getString("name"),rs.getString("id")));
+        }
+        return videos;
     }
 }
