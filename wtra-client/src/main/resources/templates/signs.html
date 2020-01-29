@@ -37,7 +37,7 @@
                 <img th:src="@{${sign.imageLink}}" alt="${sign.imageLink}"/><br/>
                 <label style ="color: #0e638d" th:text="${sign.name}"></label><br/><br/>
                 <label style ="color: #3cbb29" th:text="${sign.signDescription} != '' ? 'Description: ' + ${sign.signDescription}"></label><br/><br/>
-                <label style ="color: #b22134" th:text="${sign.regulations}!= '' ? 'Regulations: ' + ${sign.regulations}"></label><br/>
+                <label style ="color: #b22134" th:text="${sign.regulations} != '' ? 'Regulations: ' + ${sign.regulations}"></label><br/>
             </td>
             <td >
                 <label style ="color: #973165" th:text="${sign.types} != '' ? 'Type : ' + ${sign.types}"></label><br/>

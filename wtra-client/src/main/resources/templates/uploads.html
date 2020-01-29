@@ -20,14 +20,21 @@
 <table>
     <thead style="background-color: #0C5645;">
     <tr>
-        <th>Name</th>
-        <th>Data</th>
+        <th>Video data</th>
+        <th>Signs from video</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="video: ${videos}">
-        <td th:text="${video.name}"></td>
-        <td th:text="${video.data}"></td>
+    <tr th:each="video : ${videos}">
+        <td width = "35%">
+            <label style ="color: #0e638d" th:text="${video.name} != '' ? 'Name: ' + ${video.name}"></label><br/><br/>
+            <label style ="color: #455f8d" th:text="${video.id} != '' ? 'ID: ' + ${video.id}"></label><br/><br/>
+            <label style ="color: #381f8d" th:text="${video.duration} != '' ? 'Duration: ' + ${video.duration} + ' seconds'"></label><br/><br/>
+            <label style ="color: #45678d" th:text="${video.country} != '' ? 'Country: ' + ${video.country} "></label>
+        </td>
+            <tr th:each="sign : ${video.signs}">
+                <label style ="color: #0e638d" th:text="${sign.sign.name}"></label><br/><br/>
+            </tr>
     </tr>
     </tbody>
 </table>
