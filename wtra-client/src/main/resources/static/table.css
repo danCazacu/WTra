@@ -1,19 +1,19 @@
 table {
     font-family: arial, sans-serif;
-    border-collapse: collapse;
     width: 100%;
-    margin-top: 20px;
+    margin: 10% 15%;
 }
 
 tr, th, td {
-    border: 1px solid #dddddd;
+    border: 1px solid #f4f4f4;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
 }
+
 thead {
     background-color: #0C5645;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #e5f7f1;
 }
