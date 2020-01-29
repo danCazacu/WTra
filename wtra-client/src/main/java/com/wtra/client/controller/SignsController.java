@@ -163,7 +163,9 @@ public class SignsController {
                     }
                 }
 
-                return Sign.createSign(signName, signProperties);
+                if(signProperties.get(type).size() > 0) {
+                    return Sign.createSign(signName, signProperties);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
