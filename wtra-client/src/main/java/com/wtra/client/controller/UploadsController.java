@@ -139,6 +139,8 @@ public class UploadsController {
                     video.getSigns().add(signFromVideo);
                 }
 
+                Collections.sort(video.getSigns());
+
                 videos.add(video);
             }
 
