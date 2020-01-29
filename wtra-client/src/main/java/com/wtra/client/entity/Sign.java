@@ -126,6 +126,8 @@ public class Sign {
 
     private static String getStringFromSet(Map<String, Set<String>> signProperties, String property) {
         String string = "";
+        if(signProperties.get(property) == null) return string;
+
         for (String s : signProperties.get(property)) {
 
             s = s.substring(0, 1).toUpperCase() + s.substring(1);
