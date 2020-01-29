@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./table.css">
     <link rel="stylesheet" href="./main.css">
+
+    <style>
+        .container:hover .overlay {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
 <div class="topnav">
@@ -18,24 +24,29 @@
     <a id="logout" href="/login" onclick="highlight(this)">Log out</a>
 </div>
 
-<table>
+<table style="width:100%">
     <thead style="background-color: #0C5645;">
     <tr>
-        <th>Video data</th>
-        <th>Signs from video</th>
+        <th width = "50%">Video data</th>
+        <th colspan="100%">Signs from video</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="video : ${videos}">
-        <td width = "35%">
+        <td>
             <label style ="color: #0e638d" th:text="${video.name} != '' ? 'Name: ' + ${video.name}"></label><br/><br/>
             <label style ="color: #455f8d" th:text="${video.id} != '' ? 'ID: ' + ${video.id}"></label><br/><br/>
             <label style ="color: #381f8d" th:text="${video.duration} != '' ? 'Duration: ' + ${video.duration} + ' seconds'"></label><br/><br/>
             <label style ="color: #45678d" th:text="${video.country} != '' ? 'Country: ' + ${video.country} "></label>
         </td>
-            <tr th:each="sign : ${video.signs}">
-                <label style ="color: #0e638d" th:text="${sign.sign.name}"></label><br/><br/>
-            </tr>
+            <td th:each="sign : ${video.signs}">
+                <img th:src="@{${sign.sign.imageLink}}" alt="${sign.sign.imageLink}"/><br/>
+                <label style ="color: #8d6938" th:text="${sign.sign.name}"></label><br/><br/>
+                <label style ="color: #468d83" th:text="${sign.videoStamp} != '' ? 'Video stamp: ' + ${sign.videoStamp}"></label><br/><br/>
+                <label style ="color: #0e638d" th:text="${sign.location.longitude} != '' ? 'Longitude: ' + ${sign.location.longitude}"></label><br/><br/>
+                <label style ="color: #0e638d" th:text="${sign.location.latitude} != '' ? 'Latitude: ' + ${sign.location.latitude}"></label><br/><br/>
+                <label style ="color: #58468d" th:text="${sign.moreAt} != '' ? 'For more info about sign GET: ' + ${sign.moreAt}"></label><br/><br/>
+            </td>
     </tr>
     </tbody>
 </table>
