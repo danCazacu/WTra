@@ -8,3 +8,5 @@
 ### Personal thoughts: https://dancazacu.github.io/
 
 ### Swagger API Spec -- https://app.swaggerhub.com/apis-docs/danCazacu/WTra/1.0.0
+
+### Quick Tutorial Page -- https://s3-eu-west-1.amazonaws.com/tutorial.wtra/index.html
