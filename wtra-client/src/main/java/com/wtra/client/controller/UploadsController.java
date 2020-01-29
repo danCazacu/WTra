@@ -1,15 +1,14 @@
 package com.wtra.client.controller;
 
+import com.wtra.client.pojo.VideoPOJO;
 import com.wtra.client.service.DatabaseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-
-import java.util.Map;
+import java.util.List;
 
 import static com.wtra.client.controller.LoginController.TOKEN;
 import static com.wtra.client.service.AuthenticationService.checkToken;
@@ -43,7 +42,7 @@ public class UploadsController {
             return "index";
         }
         try {
-            Map<String,Object> videos = DatabaseService.getVideos(email);
+            List<VideoPOJO> videos = DatabaseService.getVideos(email);
 //            for (Map.Entry<String, Object> stringObjectEntry : videos.entrySet()) {
 //                stringObjectEntry.get
 //            }
