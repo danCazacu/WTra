@@ -8,8 +8,43 @@
     <link rel="stylesheet" href="./main.css">
 
     <style>
+        .container {
+            position: relative;
+        }
+
+        .image {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: auto;
+            width: auto;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #e9fef5;
+        }
+
         .container:hover .overlay {
-            opacity: 1;
+            opacity: 0.5;
+        }
+
+        .text {
+            color: #2f3a8d;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
     </style>
 </head>
@@ -25,7 +60,7 @@
 </div>
 
 <table style="width:100%">
-    <thead style="background-color: #0C5645;">
+    <thead style="background-color: #179b7a;">
     <tr>
         <th width = "50%">Video data</th>
         <th colspan="100%">Signs from video</th>
@@ -39,8 +74,17 @@
             <label style ="color: #381f8d" th:text="${video.duration} != '' ? 'Duration: ' + ${video.duration} + ' seconds'"></label><br/><br/>
             <label style ="color: #45678d" th:text="${video.country} != '' ? 'Country: ' + ${video.country} "></label>
         </td>
-            <td th:each="sign : ${video.signs}">
-                <img th:src="@{${sign.sign.imageLink}}" alt="${sign.sign.imageLink}"/><br/>
+            <td th:each="sign : ${video.signs}" width = "50px">
+                <div class="container">
+                    <img align="center" th:src="@{${sign.sign.imageLink}}" alt="${sign.sign.imageLink}" class="image"/><br/>
+                    <div class="overlay">
+                        <div class="text" th:text="${sign.sign.signDescription}"/><br/>
+<!--                        <div class="text" th:text="${sign.sign.form} != '' ? 'form: ' + ${sign.sign.form}"/><br/>-->
+<!--                        <div class="text" th:text="${sign.sign.backgroundColor} != '' ? 'background color: ' + ${sign.sign.backgroundColor}"/><br/>-->
+<!--                        <div class="text" th:text="${sign.sign.borderColor} != '' ? 'border color: ' + ${sign.sign.borderColor}"/><br/>-->
+<!--                        <div class="text" th:text="${sign.sign.applicableFor} != '' ? 'applicable for: ' + ${sign.sign.applicableFor}"/><br/>-->
+                    </div>
+                </div>
                 <label style ="color: #8d6938" th:text="${sign.sign.name}"></label><br/><br/>
                 <label style ="color: #468d83" th:text="${sign.videoStamp} != '' ? 'Video stamp: ' + ${sign.videoStamp}"></label><br/><br/>
                 <label style ="color: #0e638d" th:text="${sign.location.longitude} != '' ? 'Longitude: ' + ${sign.location.longitude}"></label><br/><br/>
