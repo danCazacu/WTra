@@ -1,6 +1,6 @@
 package com.wtra.client.entity;
 
-public class SignFromVideo {
+public class SignFromVideo implements Comparable<SignFromVideo>{
 
     private Integer videoStamp = -1;
     private Location location = new Location();
@@ -38,5 +38,13 @@ public class SignFromVideo {
 
     public void setMoreAt(String moreAt) {
         this.moreAt = moreAt;
+    }
+
+    @Override
+    public int compareTo(SignFromVideo signFromVideo) {
+        if (getVideoStamp() == null || signFromVideo.getVideoStamp() == null) {
+            return 0;
+        }
+        return getVideoStamp().compareTo(signFromVideo.getVideoStamp());
     }
 }
