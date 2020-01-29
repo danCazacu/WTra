@@ -1,0 +1,977 @@
+@prefix : <https://github.com/danCazacu/WTra#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix WTra: <https://github.com/danCazacu/WTra#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/danCazacu/WTra> .
+
+<https://github.com/danCazacu/WTra> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#intersectionOf
+owl:intersectionOf rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2002/07/owl#unionOf
+owl:unionOf rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/danCazacu/WTra#applicableTo
+WTra:applicableTo rdf:type owl:ObjectProperty ;
+                  rdfs:domain WTra:Traffic_Sign ;
+                  rdfs:range WTra:Person .
+
+
+###  https://github.com/danCazacu/WTra#hasBackgroundColor
+WTra:hasBackgroundColor rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:domain WTra:Traffic_Sign ;
+                        rdfs:range WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#hasBorderColor
+WTra:hasBorderColor rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain WTra:Traffic_Sign ;
+                    rdfs:range WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#hasCode
+WTra:hasCode rdf:type owl:ObjectProperty ;
+             owl:inverseOf WTra:isCountry ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:InverseFunctionalProperty ;
+             rdfs:domain WTra:Country_Code ;
+             rdfs:range WTra:Country .
+
+
+###  https://github.com/danCazacu/WTra#hasForm
+WTra:hasForm rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain WTra:Traffic_Sign ;
+             rdfs:range WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#hasNotSign
+WTra:hasNotSign rdf:type owl:ObjectProperty ;
+                rdfs:domain WTra:Country ;
+                rdfs:range WTra:Traffic_Sign .
+
+
+###  https://github.com/danCazacu/WTra#hasSign
+WTra:hasSign rdf:type owl:ObjectProperty ;
+             rdfs:domain WTra:Country ;
+             rdfs:range WTra:Traffic_Sign .
+
+
+###  https://github.com/danCazacu/WTra#isCountry
+WTra:isCountry rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdf:type owl:FunctionalProperty ,
+                        owl:InverseFunctionalProperty ;
+               rdfs:domain WTra:Country_Code ;
+               rdfs:range WTra:Country .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://github.com/danCazacu/WTra#hasImageLink
+WTra:hasImageLink rdf:type owl:DatatypeProperty ;
+                  rdfs:domain WTra:Traffic_Sign ;
+                  rdfs:range xsd:string .
+
+
+###  https://github.com/danCazacu/WTra#hasLegalRegulations
+WTra:hasLegalRegulations rdf:type owl:DatatypeProperty ;
+                         rdfs:domain WTra:Traffic_Sign ;
+                         rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Color
+WTra:Color rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Country
+WTra:Country rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Country_Code
+WTra:Country_Code rdf:type owl:Class ;
+                  rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Information_Sign
+WTra:Information_Sign rdf:type owl:Class ;
+                      rdfs:subClassOf WTra:Traffic_Sign ;
+                      rdfs:comment "The information signs give you more information about the start (and end) of a kind of traffic situation." ;
+                      rdfs:label "Information Sign" .
+
+
+###  https://github.com/danCazacu/WTra#Mandatory_Sign
+WTra:Mandatory_Sign rdf:type owl:Class ;
+                    rdfs:subClassOf WTra:Traffic_Sign ;
+                    rdfs:comment "The mandatory signs impose an obligation/command that road users must comply with." ;
+                    rdfs:label "Mandatory Sign" .
+
+
+###  https://github.com/danCazacu/WTra#Person
+WTra:Person rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Priority_Sign
+WTra:Priority_Sign rdf:type owl:Class ;
+                   rdfs:subClassOf WTra:Traffic_Sign ;
+                   rdfs:comment "The priority signs have an influence on the priority rules. They indicate who has priority and who should give priority." ;
+                   rdfs:label "Priority Sign" .
+
+
+###  https://github.com/danCazacu/WTra#Prohibitory_Sign
+WTra:Prohibitory_Sign rdf:type owl:Class ;
+                      rdfs:subClassOf WTra:Traffic_Sign ;
+                      rdfs:comment "The prohibition signs forbid a certain action. They indicate certain actions that road users are not allowed to do." ;
+                      rdfs:label "Prohibitory Sign" .
+
+
+###  https://github.com/danCazacu/WTra#Road_Sign
+WTra:Road_Sign rdf:type owl:Class ;
+               owl:equivalentClass WTra:Traffic_Sign ;
+               rdfs:subClassOf WTra:Signs .
+
+
+###  https://github.com/danCazacu/WTra#Safety_Sign
+WTra:Safety_Sign rdf:type owl:Class ;
+                 rdfs:subClassOf WTra:Signs ;
+                 rdfs:comment "The safety signs are often used in companies or factories to provide information about safety." .
+
+
+###  https://github.com/danCazacu/WTra#Shape
+WTra:Shape rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Signs
+WTra:Signs rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing .
+
+
+###  https://github.com/danCazacu/WTra#Traffic_Sign
+WTra:Traffic_Sign rdf:type owl:Class ;
+                  rdfs:subClassOf WTra:Signs ;
+                  rdfs:comment "The traffic signs are located on the side or top of the road. They give directions on how we should behave on the road, so that the traffic can proceed safely and smoothly. Everyone must know the traffic signs!" .
+
+
+###  https://github.com/danCazacu/WTra#Warning_Sign
+WTra:Warning_Sign rdf:type owl:Class ;
+                  rdfs:subClassOf WTra:Traffic_Sign ;
+                  rdfs:comment "The warning signs are placed to warn road users of a potentially dangerous traffic situation." ;
+                  rdfs:label "Warning Sign" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://github.com/danCazacu/WTra#begin_of_a_priority_road
+WTra:begin_of_a_priority_road rdf:type owl:NamedIndividual ,
+                                       WTra:Information_Sign ,
+                                       WTra:Priority_Sign ;
+                              WTra:applicableTo WTra:driver ;
+                              WTra:hasBackgroundColor WTra:yellow ;
+                              WTra:hasBorderColor WTra:white ;
+                              WTra:hasForm WTra:diamond ;
+                              WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/information/information-priority-road.png" ;
+                              WTra:hasLegalRegulations "Priority road (priority at all following intersections up to an end-of-priority-road, yield or stop sign). In some countries, the meaning was changed to the next intersection only." ;
+                              rdfs:comment "This traffic sign indicates the begin of a priority road. You have priority at all following crossroads until the end of the priority road." .
+
+
+###  https://github.com/danCazacu/WTra#black
+WTra:black rdf:type owl:NamedIndividual ,
+                    WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#blue
+WTra:blue rdf:type owl:NamedIndividual ,
+                   WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#circle
+WTra:circle rdf:type owl:NamedIndividual ,
+                     WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#crossing_for_pedestrians
+WTra:crossing_for_pedestrians rdf:type owl:NamedIndividual ,
+                                       WTra:Information_Sign ;
+                              WTra:applicableTo WTra:driver ,
+                                                WTra:pedestrian ;
+                              WTra:hasBackgroundColor WTra:blue ;
+                              WTra:hasBorderColor WTra:white ;
+                              WTra:hasForm WTra:square ;
+                              WTra:hasImageLink "https://traffic-rules.com/img/europe/gr/signs/information/information-crossing-pedestrian.png" ;
+                              WTra:hasLegalRegulations """Pedestrian crossings allow people to cross the road safely. These crossings are usually marked by white stripes on the road and are also known as zebra crossings.
+
+Some pedestrian crossings have zig zag lines marked on the road before the crossing. Take extra care when you see a zig zag line on the road as this means you are approaching a crossing which you may not be able to see because of a curve, crest or dip in the road.
+
+Do not overtake any vehicle that is stopping or has stopped at a crossing.""" ;
+                              rdfs:comment "This traffic sign indicates a crossing for pedestrians." .
+
+
+###  https://github.com/danCazacu/WTra#d
+WTra:d rdf:type owl:NamedIndividual ,
+                WTra:Country_Code ;
+       WTra:isCountry WTra:germany .
+
+
+###  https://github.com/danCazacu/WTra#diamond
+WTra:diamond rdf:type owl:NamedIndividual ,
+                      WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#driver
+WTra:driver rdf:type owl:NamedIndividual ,
+                     WTra:Person .
+
+
+###  https://github.com/danCazacu/WTra#end_of_the_priority_road_one_3_lines
+WTra:end_of_the_priority_road_one_3_lines rdf:type owl:NamedIndividual ,
+                                                   WTra:Information_Sign ,
+                                                   WTra:Priority_Sign ;
+                                          owl:sameAs WTra:end_of_the_priority_road_one_line ;
+                                          WTra:applicableTo WTra:driver ;
+                                          WTra:hasBackgroundColor WTra:yellow ;
+                                          WTra:hasBorderColor WTra:white ;
+                                          WTra:hasForm WTra:diamond ;
+                                          WTra:hasImageLink "https://traffic-rules.com/img/europe/de/signs/information/information-priority-road_end.png" ;
+                                          WTra:hasLegalRegulations "End of priority road (priority to the right applies at uncontrolled intersections)" ;
+                                          rdfs:comment "This traffic sign indicates the end of the priority road. You have no longer priority at the following crossroads." .
+
+
+###  https://github.com/danCazacu/WTra#end_of_the_priority_road_one_line
+WTra:end_of_the_priority_road_one_line rdf:type owl:NamedIndividual ,
+                                                WTra:Information_Sign ,
+                                                WTra:Priority_Sign ;
+                                       WTra:applicableTo WTra:driver ;
+                                       WTra:hasBackgroundColor WTra:yellow ;
+                                       WTra:hasBorderColor WTra:white ;
+                                       WTra:hasForm WTra:diamond ;
+                                       WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/information/information-priority-road_end.png" ;
+                                       WTra:hasLegalRegulations "End of priority road (priority to the right applies at uncontrolled intersections)" ;
+                                       rdfs:comment "This traffic sign indicates the end of the priority road. You have no longer priority at the following crossroads." .
+
+
+###  https://github.com/danCazacu/WTra#end_of_the_speed_limit_3_lines
+WTra:end_of_the_speed_limit_3_lines rdf:type owl:NamedIndividual ,
+                                             WTra:Prohibitory_Sign ;
+                                    owl:sameAs WTra:end_of_the_speed_limit_one_line ;
+                                    WTra:applicableTo WTra:driver ;
+                                    WTra:hasBackgroundColor WTra:white ;
+                                    WTra:hasBorderColor WTra:black ;
+                                    WTra:hasForm WTra:circle ;
+                                    WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-action-speed_end.png" ;
+                                    WTra:hasLegalRegulations "The traffic sign indicates the end of the speed limit. From now one the driver can pass the limit, but respecting though the limit for the area were he is driving (e.g.: expressway )" ;
+                                    rdfs:comment "This traffic sign indicates the end of the speed limit." .
+
+
+###  https://github.com/danCazacu/WTra#end_of_the_speed_limit_one_line
+WTra:end_of_the_speed_limit_one_line rdf:type owl:NamedIndividual ,
+                                              WTra:Prohibitory_Sign ;
+                                     WTra:applicableTo WTra:driver ;
+                                     WTra:hasBackgroundColor WTra:white ;
+                                     WTra:hasBorderColor WTra:black ;
+                                     WTra:hasForm WTra:circle ;
+                                     WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-action-speed_end.png" ;
+                                     WTra:hasLegalRegulations "The traffic sign indicates the end of the speed limit. From now one the driver can pass the limit, but respecting though the limit for the area were he is driving (e.g.: expressway )" ;
+                                     rdfs:comment "This traffic sign indicates the end of the speed limit." .
+
+
+###  https://github.com/danCazacu/WTra#fin
+WTra:fin rdf:type owl:NamedIndividual ,
+                  WTra:Country_Code ;
+         WTra:isCountry WTra:finland .
+
+
+###  https://github.com/danCazacu/WTra#finland
+WTra:finland rdf:type owl:NamedIndividual ,
+                      WTra:Country ;
+             WTra:hasCode WTra:fin ;
+             WTra:hasSign WTra:begin_of_a_priority_road ,
+                          WTra:crossing_for_pedestrians ,
+                          WTra:end_of_the_priority_road_one_3_lines ,
+                          WTra:end_of_the_speed_limit_3_lines ,
+                          WTra:give_way_to_all_drivers_red_yellow ,
+                          WTra:mandatory_right ,
+                          WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                          WTra:maximum_speed_limit_red_yellow ,
+                          WTra:no_motor_vehicles_red_yellow ,
+                          WTra:other_danger_red_yellow ,
+                          WTra:pedestrians_prohibited_red_yellow ,
+                          WTra:stop_and_give_way_to_all_drivers ,
+                          WTra:turning_left_prohibited_red_yellow ,
+                          WTra:turning_right_mandatory ,
+                          WTra:turning_right_prohibited_red_yellow ,
+                          WTra:warning_for_a_crossing_for_pedestrians_red_yellow ,
+                          WTra:warning_for_a_traffic_light_red_yellow ,
+                          WTra:warning_for_children_red_yellow ,
+                          WTra:warning_for_traffic_jams_red_black .
+
+
+###  https://github.com/danCazacu/WTra#gb
+WTra:gb rdf:type owl:NamedIndividual ,
+                 WTra:Country_Code ;
+        WTra:isCountry WTra:united_kindom .
+
+
+###  https://github.com/danCazacu/WTra#general_warning_sign
+WTra:general_warning_sign rdf:type owl:NamedIndividual ,
+                                   WTra:Safety_Sign ;
+                          WTra:hasImageLink "https://traffic-rules.com/img/international/safety-signs/warning.png" .
+
+
+###  https://github.com/danCazacu/WTra#germany
+WTra:germany rdf:type owl:NamedIndividual ,
+                      WTra:Country ;
+             WTra:hasCode WTra:d ;
+             WTra:hasNotSign WTra:other_danger_red_white ,
+                             WTra:other_danger_red_yellow ;
+             WTra:hasSign WTra:begin_of_a_priority_road ,
+                          WTra:crossing_for_pedestrians ,
+                          WTra:end_of_the_priority_road_one_3_lines ,
+                          WTra:end_of_the_speed_limit_one_line ,
+                          WTra:give_way_to_all_drivers_red_white ,
+                          WTra:mandatory_right ,
+                          WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                          WTra:maximum_speed_limit_red_white ,
+                          WTra:minimum_speed_limit ,
+                          WTra:no_motor_vehicles_red_white ,
+                          WTra:pedestrians_prohibited_red_white ,
+                          WTra:stop_and_give_way_to_all_drivers ,
+                          WTra:turning_left_prohibited_red_white ,
+                          WTra:turning_right_mandatory ,
+                          WTra:turning_right_prohibited_red_white ,
+                          WTra:warning_for_a_crossing_for_pedestrians_red_white ,
+                          WTra:warning_for_a_traffic_light_red_white ,
+                          WTra:warning_for_children_red_white ,
+                          WTra:warning_for_traffic_jams_red_white ;
+             rdfs:seeAlso "https://www.wikiwand.com/en/Germany" .
+
+
+###  https://github.com/danCazacu/WTra#give_way_to_all_drivers_red_white
+WTra:give_way_to_all_drivers_red_white rdf:type owl:NamedIndividual ,
+                                                WTra:Priority_Sign ,
+                                                WTra:Warning_Sign ;
+                                       owl:sameAs WTra:give_way_to_all_drivers_red_yellow ;
+                                       WTra:applicableTo WTra:driver ;
+                                       WTra:hasBackgroundColor WTra:white ;
+                                       WTra:hasBorderColor WTra:red ;
+                                       WTra:hasForm WTra:triangle ;
+                                       WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-crossroad-give-way.png" ;
+                                       WTra:hasLegalRegulations "This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear. He is not forced to stop the car." ;
+                                       rdfs:comment "This traffic sign warns for a crossroad and indicates who has priority. This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear." .
+
+
+###  https://github.com/danCazacu/WTra#give_way_to_all_drivers_red_yellow
+WTra:give_way_to_all_drivers_red_yellow rdf:type owl:NamedIndividual ,
+                                                 WTra:Priority_Sign ,
+                                                 WTra:Warning_Sign ;
+                                        WTra:applicableTo WTra:driver ;
+                                        WTra:hasBackgroundColor WTra:yellow ;
+                                        WTra:hasBorderColor WTra:red ;
+                                        WTra:hasForm WTra:triangle ;
+                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/gr/signs/warning/warning-crossroad-give-way.png" ;
+                                        WTra:hasLegalRegulations "This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear. The driver is not forced to stop the car." ;
+                                        rdfs:comment "This traffic sign warns for a crossroad and indicates who has priority. This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear." .
+
+
+###  https://github.com/danCazacu/WTra#green
+WTra:green rdf:type owl:NamedIndividual ,
+                    WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#hexagon
+WTra:hexagon rdf:type owl:NamedIndividual ,
+                      WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#ireland
+WTra:ireland rdf:type owl:NamedIndividual ,
+                      WTra:Country ;
+             WTra:hasCode WTra:irl ;
+             WTra:hasNotSign WTra:begin_of_a_priority_road ,
+                             WTra:end_of_the_priority_road_one_3_lines ,
+                             WTra:end_of_the_priority_road_one_line ,
+                             WTra:minimum_speed_limit ,
+                             WTra:other_danger_red_white ;
+             WTra:hasSign WTra:crossing_for_pedestrians ,
+                          WTra:end_of_the_speed_limit_one_line ,
+                          WTra:give_way_to_all_drivers_red_white ,
+                          WTra:mandatory_right ,
+                          WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                          WTra:maximum_speed_limit_red_white ,
+                          WTra:pedestrians_prohibited_red_white ,
+                          WTra:stop_and_give_way_to_all_drivers ,
+                          WTra:turning_left_prohibited_red_white ,
+                          WTra:turning_right_mandatory ,
+                          WTra:turning_right_prohibited_red_white ,
+                          WTra:warning_for_a_crossing_for_pedestrians_red_white ,
+                          WTra:warning_for_a_traffic_light_diamond ,
+                          WTra:warning_for_children_red_white ,
+                          WTra:warning_for_traffic_jams_red_yellow ;
+             rdfs:comment "Road signs in Ireland do not differ greatly from those used elsewhere in Europe, but there are some differences between those used in the Republic of Ireland and those used in Northern Ireland, including different systems of units used in each jurisdiction." ;
+             rdfs:seeAlso "https://www.wikiwand.com/en/Republic_of_Ireland" .
+
+
+###  https://github.com/danCazacu/WTra#irl
+WTra:irl rdf:type owl:NamedIndividual ,
+                  WTra:Country_Code ;
+         WTra:isCountry WTra:ireland .
+
+
+###  https://github.com/danCazacu/WTra#italy
+WTra:italy rdf:type owl:NamedIndividual ,
+                    WTra:Country ;
+           WTra:hasNotSign WTra:no_motor_vehicles_red_white ,
+                           WTra:no_motor_vehicles_red_yellow ;
+           WTra:hasSign WTra:begin_of_a_priority_road ,
+                        WTra:crossing_for_pedestrians ,
+                        WTra:end_of_the_priority_road_one_line ,
+                        WTra:end_of_the_speed_limit_one_line ,
+                        WTra:give_way_to_all_drivers_red_white ,
+                        WTra:mandatory_right ,
+                        WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                        WTra:maximum_speed_limit_red_white ,
+                        WTra:minimum_speed_limit ,
+                        WTra:other_danger_red_yellow ,
+                        WTra:pedestrians_prohibited_red_white ,
+                        WTra:stop_and_give_way_to_all_drivers ,
+                        WTra:turning_left_prohibited_red_white ,
+                        WTra:turning_right_mandatory ,
+                        WTra:turning_right_prohibited_red_white ,
+                        WTra:warning_for_a_crossing_for_pedestrians_red_white ,
+                        WTra:warning_for_a_traffic_light_red_white ,
+                        WTra:warning_for_children_red_white ,
+                        WTra:warning_for_traffic_jams_red_white ;
+           rdfs:comment "Road signs in Ireland do not differ greatly from those used elsewhere in Europe, but there are some differences between those used in the Republic of Ireland and those used in Northern Ireland, including different systems of units used in each jurisdiction." ;
+           rdfs:seeAlso "https://www.wikiwand.com/en/Italy" .
+
+
+###  https://github.com/danCazacu/WTra#lt
+WTra:lt rdf:type owl:NamedIndividual ,
+                 WTra:Country_Code ;
+        WTra:isCountry WTra:italy .
+
+
+###  https://github.com/danCazacu/WTra#mandatory_right
+WTra:mandatory_right rdf:type owl:NamedIndividual ,
+                              WTra:Mandatory_Sign ;
+                     WTra:applicableTo WTra:driver ;
+                     WTra:hasBackgroundColor WTra:blue ;
+                     WTra:hasBorderColor WTra:white ;
+                     WTra:hasForm WTra:circle ;
+                     WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/mandatory/mandatory-direction-turn-right.png" ;
+                     WTra:hasLegalRegulations "This traffic sign indicates that all drivers must turn right, turning left is not allowed." ;
+                     rdfs:comment "This traffic sign indicates that all drivers must turn right, turning left is not allowed." .
+
+
+###  https://github.com/danCazacu/WTra#mandatory_shared_path_for_pedestrians_and_cyclists
+WTra:mandatory_shared_path_for_pedestrians_and_cyclists rdf:type owl:NamedIndividual ,
+                                                                 WTra:Mandatory_Sign ;
+                                                        WTra:applicableTo WTra:driver ,
+                                                                          WTra:pedestrian ;
+                                                        WTra:hasBackgroundColor WTra:blue ;
+                                                        WTra:hasBorderColor WTra:white ;
+                                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/mandatory/mandatory-lane-pedestrian-cyclist.png" ;
+                                                        WTra:hasLegalRegulations "Way were only pedestrian and cyclists are allowed to go on." ;
+                                                        rdfs:comment "This traffic sign indicates the begin of a shared path for pedestrians and cyclists." .
+
+
+###  https://github.com/danCazacu/WTra#maximum_speed_limit_red_white
+WTra:maximum_speed_limit_red_white rdf:type owl:NamedIndividual ,
+                                            WTra:Prohibitory_Sign ;
+                                   owl:sameAs WTra:maximum_speed_limit_red_yellow ;
+                                   WTra:applicableTo WTra:driver ;
+                                   WTra:hasBackgroundColor WTra:white ;
+                                   WTra:hasBorderColor WTra:red ;
+                                   WTra:hasForm WTra:circle ;
+                                   WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-action-speed.png" ;
+                                   WTra:hasLegalRegulations "The driver is forced to drive with speed below the limit indicating by the traffic sign." ;
+                                   rdfs:comment "This traffic sign indicates the begin of a zone with a speed limit. On all roads in the zone it’s prohibited to drive faster than indicated." .
+
+
+###  https://github.com/danCazacu/WTra#maximum_speed_limit_red_yellow
+WTra:maximum_speed_limit_red_yellow rdf:type owl:NamedIndividual ,
+                                             WTra:Prohibitory_Sign ;
+                                    WTra:applicableTo WTra:driver ;
+                                    WTra:hasBackgroundColor WTra:yellow ;
+                                    WTra:hasBorderColor WTra:red ;
+                                    WTra:hasForm WTra:circle ;
+                                    WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-action-speed.png" ;
+                                    WTra:hasLegalRegulations "The driver is forced to drive with speed below the limit indicating by the traffic sign." ;
+                                    rdfs:comment "This traffic sign indicates the begin of a zone with a speed limit. On all roads in the zone it’s prohibited to drive faster than indicated." .
+
+
+###  https://github.com/danCazacu/WTra#minimum_speed_limit
+WTra:minimum_speed_limit rdf:type owl:NamedIndividual ,
+                                  WTra:Mandatory_Sign ;
+                         WTra:applicableTo WTra:driver ;
+                         WTra:hasBackgroundColor WTra:blue ;
+                         WTra:hasBorderColor WTra:white ;
+                         WTra:hasForm WTra:circle ;
+                         WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/mandatory/mandatory-speed-minimum.png" ;
+                         WTra:hasLegalRegulations "The driver has to drive the card with the minimum speed indicated by the traffic sign." ;
+                         rdfs:comment "This traffic sign indicates the begin of a minimum speed. Drive faster than indicated." .
+
+
+###  https://github.com/danCazacu/WTra#no_motor_vehicles_red_white
+WTra:no_motor_vehicles_red_white rdf:type owl:NamedIndividual ,
+                                          WTra:Prohibitory_Sign ;
+                                 owl:sameAs WTra:no_motor_vehicles_red_yellow ;
+                                 WTra:applicableTo WTra:driver ;
+                                 WTra:hasBackgroundColor WTra:white ;
+                                 WTra:hasBorderColor WTra:red ;
+                                 WTra:hasForm WTra:circle ;
+                                 WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-access-motorcycle-car.png" ;
+                                 WTra:hasLegalRegulations "The traffic indicates an area were the cars and motorcycle are prohibited." ;
+                                 rdfs:comment "This traffic sign indicates a place where motorcycles and cars are prohibited. Pedestrians and cyclists are allowed in these places. An example of this would be a market area." .
+
+
+###  https://github.com/danCazacu/WTra#no_motor_vehicles_red_yellow
+WTra:no_motor_vehicles_red_yellow rdf:type owl:NamedIndividual ,
+                                           WTra:Prohibitory_Sign ;
+                                  WTra:applicableTo WTra:driver ;
+                                  WTra:hasBackgroundColor WTra:yellow ;
+                                  WTra:hasBorderColor WTra:red ;
+                                  WTra:hasForm WTra:circle ;
+                                  WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-access-motorcycle-car.png" ;
+                                  WTra:hasLegalRegulations "The traffic indicates an area were the cars and motorcycle are prohibited." ;
+                                  rdfs:comment "This traffic sign indicates a place where motorcycles and cars are prohibited. Pedestrians and cyclists are allowed in these places. An example of this would be a market area." .
+
+
+###  https://github.com/danCazacu/WTra#other_danger_red_white
+WTra:other_danger_red_white rdf:type owl:NamedIndividual ,
+                                     WTra:Warning_Sign ;
+                            owl:sameAs WTra:other_danger_red_yellow ;
+                            WTra:applicableTo WTra:driver ;
+                            WTra:hasBackgroundColor WTra:white ;
+                            WTra:hasBorderColor WTra:red ;
+                            WTra:hasForm WTra:triangle ;
+                            WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning.png" ;
+                            WTra:hasLegalRegulations "The driver must be very careful as it is a zone were accidents happens offten. It is indicated to reduce the speed." ;
+                            rdfs:comment "This traffic sign warns for miscellaneous dangers for which there is no specific traffic sign. For examples: road accidents, flooded roads and roads blocked by fallen trees. It always have a supplementary sign attached that tells drivers of what hazard to expect." .
+
+
+###  https://github.com/danCazacu/WTra#other_danger_red_yellow
+WTra:other_danger_red_yellow rdf:type owl:NamedIndividual ,
+                                      WTra:Warning_Sign ;
+                             WTra:applicableTo WTra:driver ;
+                             WTra:hasBackgroundColor WTra:yellow ;
+                             WTra:hasBorderColor WTra:red ;
+                             WTra:hasForm WTra:triangle ;
+                             WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/warning/warning.png" ;
+                             WTra:hasLegalRegulations "The driver must be very careful as it is a zone were accidents happens offten. It is indicated to reduce the speed." ;
+                             rdfs:comment "This traffic sign warns for miscellaneous dangers for which there is no specific traffic sign. For examples: road accidents, flooded roads and roads blocked by fallen trees. It always have a supplementary sign attached that tells drivers of what hazard to expect." .
+
+
+###  https://github.com/danCazacu/WTra#pedestrian
+WTra:pedestrian rdf:type owl:NamedIndividual ,
+                         WTra:Person .
+
+
+###  https://github.com/danCazacu/WTra#pedestrians_prohibited_red_white
+WTra:pedestrians_prohibited_red_white rdf:type owl:NamedIndividual ,
+                                               WTra:Prohibitory_Sign ;
+                                      owl:sameAs WTra:pedestrians_prohibited_red_yellow ;
+                                      WTra:applicableTo WTra:driver ,
+                                                        WTra:pedestrian ;
+                                      WTra:hasBackgroundColor WTra:white ;
+                                      WTra:hasBorderColor WTra:red ;
+                                      WTra:hasForm WTra:circle ;
+                                      WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-access-pedestrian.png" ;
+                                      WTra:hasLegalRegulations "The sign indicates an area were the pedestrian can not enter." ;
+                                      rdfs:comment "This traffic sign indicates a place where pedestrians are prohibited, such as certain bridges or flyovers where separate provisions have been made for pedestrians." .
+
+
+###  https://github.com/danCazacu/WTra#pedestrians_prohibited_red_yellow
+WTra:pedestrians_prohibited_red_yellow rdf:type owl:NamedIndividual ,
+                                                WTra:Prohibitory_Sign ;
+                                       WTra:applicableTo WTra:driver ,
+                                                         WTra:pedestrian ;
+                                       WTra:hasBackgroundColor WTra:yellow ;
+                                       WTra:hasBorderColor WTra:red ;
+                                       WTra:hasForm WTra:circle ;
+                                       WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-access-pedestrian.png" ;
+                                       WTra:hasLegalRegulations "The sign indicates an area were the pedestrian can not enter." ;
+                                       rdfs:comment "This traffic sign indicates a place where pedestrians are prohibited, such as certain bridges or flyovers where separate provisions have been made for pedestrians." .
+
+
+###  https://github.com/danCazacu/WTra#red
+WTra:red rdf:type owl:NamedIndividual ,
+                  WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#ro
+WTra:ro rdf:type owl:NamedIndividual ,
+                 WTra:Country_Code ;
+        WTra:isCountry WTra:romania .
+
+
+###  https://github.com/danCazacu/WTra#romania
+WTra:romania rdf:type owl:NamedIndividual ,
+                      WTra:Country ;
+             WTra:hasCode WTra:ro ;
+             WTra:hasSign WTra:begin_of_a_priority_road ,
+                          WTra:crossing_for_pedestrians ,
+                          WTra:end_of_the_priority_road_one_line ,
+                          WTra:end_of_the_speed_limit_one_line ,
+                          WTra:give_way_to_all_drivers_red_white ,
+                          WTra:mandatory_right ,
+                          WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                          WTra:maximum_speed_limit_red_white ,
+                          WTra:minimum_speed_limit ,
+                          WTra:no_motor_vehicles_red_white ,
+                          WTra:other_danger_red_white ,
+                          WTra:pedestrians_prohibited_red_white ,
+                          WTra:stop_and_give_way_to_all_drivers ,
+                          WTra:turning_left_prohibited_red_white ,
+                          WTra:turning_right_mandatory ,
+                          WTra:turning_right_prohibited_red_white ,
+                          WTra:warning_for_a_crossing_for_pedestrians_red_white ,
+                          WTra:warning_for_a_traffic_light_red_white ,
+                          WTra:warning_for_children_red_white ,
+                          WTra:warning_for_traffic_jams_red_white ;
+             rdfs:seeAlso "https://www.wikiwand.com/en/Romania" .
+
+
+###  https://github.com/danCazacu/WTra#square
+WTra:square rdf:type owl:NamedIndividual ,
+                     WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#stop_and_give_way_to_all_drivers
+WTra:stop_and_give_way_to_all_drivers rdf:type owl:NamedIndividual ,
+                                               WTra:Priority_Sign ,
+                                               WTra:Warning_Sign ;
+                                      owl:sameAs WTra:stop_and_give_way_to_all_drivers_triangle ;
+                                      WTra:applicableTo WTra:driver ;
+                                      WTra:hasBackgroundColor WTra:red ;
+                                      WTra:hasBorderColor WTra:white ;
+                                      WTra:hasForm WTra:hexagon ;
+                                      WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-crossroad-stop.png" ;
+                                      WTra:hasLegalRegulations "This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear. The driver is forced to stop." ;
+                                      rdfs:comment "This traffic sign warns for a crossroad where visibility is poor or unsafe for drivers to enter the crossroad without stopping. It instructs drivers to bring their vehicles to a complete stop and not proceed until it is safe to do so." .
+
+
+###  https://github.com/danCazacu/WTra#stop_and_give_way_to_all_drivers_triangle
+WTra:stop_and_give_way_to_all_drivers_triangle rdf:type owl:NamedIndividual ,
+                                                        WTra:Priority_Sign ,
+                                                        WTra:Warning_Sign ;
+                                               WTra:applicableTo WTra:driver ;
+                                               WTra:hasBackgroundColor WTra:white ;
+                                               WTra:hasBorderColor WTra:red ;
+                                               WTra:hasForm WTra:triangle ;
+                                               WTra:hasLegalRegulations "This traffic sign means that the driver is not allowed to enter the crossroad unless the road is clear. The driver is forced to stop." ;
+                                               rdfs:comment "This traffic sign warns for a crossroad where visibility is poor or unsafe for drivers to enter the crossroad without stopping. It instructs drivers to bring their vehicles to a complete stop and not proceed until it is safe to do so." .
+
+
+###  https://github.com/danCazacu/WTra#triangle
+WTra:triangle rdf:type owl:NamedIndividual ,
+                       WTra:Shape .
+
+
+###  https://github.com/danCazacu/WTra#turning_left_prohibited_red_white
+WTra:turning_left_prohibited_red_white rdf:type owl:NamedIndividual ,
+                                                WTra:Prohibitory_Sign ;
+                                       owl:sameAs WTra:turning_left_prohibited_red_yellow ;
+                                       WTra:applicableTo WTra:driver ;
+                                       WTra:hasBackgroundColor WTra:white ;
+                                       WTra:hasBorderColor WTra:red ;
+                                       WTra:hasForm WTra:circle ;
+                                       WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-action-turn-left.png" ;
+                                       WTra:hasLegalRegulations "The sign indicates a place were the driver can not turn left in the first intersection." ;
+                                       rdfs:comment "This traffic sign indicates a place where turning left into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn left would cause traffic congestion." .
+
+
+###  https://github.com/danCazacu/WTra#turning_left_prohibited_red_yellow
+WTra:turning_left_prohibited_red_yellow rdf:type owl:NamedIndividual ,
+                                                 WTra:Prohibitory_Sign ;
+                                        WTra:applicableTo WTra:driver ;
+                                        WTra:hasBackgroundColor WTra:yellow ;
+                                        WTra:hasBorderColor WTra:red ;
+                                        WTra:hasForm WTra:circle ;
+                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-action-turn-left.png" ;
+                                        WTra:hasLegalRegulations "The sign indicates a place were the driver can not turn left in the first intersection." ;
+                                        rdfs:comment "This traffic sign indicates a place where turning left into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn left would cause traffic congestion." .
+
+
+###  https://github.com/danCazacu/WTra#turning_right_mandatory
+WTra:turning_right_mandatory rdf:type owl:NamedIndividual ,
+                                      WTra:Mandatory_Sign ;
+                             WTra:applicableTo WTra:driver ;
+                             WTra:hasBackgroundColor WTra:blue ;
+                             WTra:hasBorderColor WTra:white ;
+                             WTra:hasForm WTra:circle ;
+                             WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/mandatory/mandatory-direction-ahead-turn-right.png" ;
+                             WTra:hasLegalRegulations "This traffic sign indicates that all drivers must turn right, other directions are not allowed." ;
+                             rdfs:comment "This traffic sign indicates that all drivers must turn right, other directions are not allowed." .
+
+
+###  https://github.com/danCazacu/WTra#turning_right_prohibited_red_white
+WTra:turning_right_prohibited_red_white rdf:type owl:NamedIndividual ,
+                                                 WTra:Prohibitory_Sign ;
+                                        owl:sameAs WTra:turning_right_prohibited_red_yellow ;
+                                        WTra:applicableTo WTra:driver ;
+                                        WTra:hasBackgroundColor WTra:white ;
+                                        WTra:hasBorderColor WTra:red ;
+                                        WTra:hasForm WTra:circle ;
+                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/prohibitory/prohibited-action-turn-right.png" ;
+                                        WTra:hasLegalRegulations "The sign indicates a place were the driver can not turn right in the first intersection." ;
+                                        rdfs:comment "This traffic sign indicates a place where turning right into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn right would cause traffic congestion." .
+
+
+###  https://github.com/danCazacu/WTra#turning_right_prohibited_red_yellow
+WTra:turning_right_prohibited_red_yellow rdf:type owl:NamedIndividual ,
+                                                  WTra:Prohibitory_Sign ;
+                                         WTra:applicableTo WTra:driver ;
+                                         WTra:hasBackgroundColor WTra:yellow ;
+                                         WTra:hasBorderColor WTra:red ;
+                                         WTra:hasForm WTra:circle ;
+                                         WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/prohibitory/prohibited-action-turn-right.png" ;
+                                         WTra:hasLegalRegulations "The sign indicates a place were the driver can not turn right in the first intersection." ;
+                                         rdfs:comment "This traffic sign indicates a place where turning right into a side road is prohibited. This normally occurs where either the side road is one way in the opposite direction or vehicles waiting to turn right would cause traffic congestion." .
+
+
+###  https://github.com/danCazacu/WTra#united_kindom
+WTra:united_kindom rdf:type owl:NamedIndividual ,
+                            WTra:Country ;
+                   WTra:hasCode WTra:gb ;
+                   WTra:hasNotSign WTra:begin_of_a_priority_road ,
+                                   WTra:crossing_for_pedestrians ,
+                                   WTra:end_of_the_priority_road_one_3_lines ,
+                                   WTra:end_of_the_priority_road_one_line ,
+                                   WTra:other_danger_red_white ,
+                                   WTra:other_danger_red_yellow ;
+                   WTra:hasSign WTra:end_of_the_speed_limit_one_line ,
+                                WTra:give_way_to_all_drivers_red_white ,
+                                WTra:mandatory_right ,
+                                WTra:mandatory_shared_path_for_pedestrians_and_cyclists ,
+                                WTra:maximum_speed_limit_red_white ,
+                                WTra:minimum_speed_limit ,
+                                WTra:no_motor_vehicles_red_white ,
+                                WTra:pedestrians_prohibited_red_white ,
+                                WTra:stop_and_give_way_to_all_drivers ,
+                                WTra:turning_left_prohibited_red_white ,
+                                WTra:turning_right_mandatory ,
+                                WTra:turning_right_prohibited_red_white ,
+                                WTra:warning_for_a_crossing_for_pedestrians_red_white ,
+                                WTra:warning_for_a_traffic_light_red_white ,
+                                WTra:warning_for_children_red_white ,
+                                WTra:warning_for_traffic_jams_red_white ;
+                   rdfs:comment "Road signs in the United Kingdom conform broadly to European design norms, though a number of signs are unique: direction signs omit European route numbers and road signs generally use the Imperial System of units (miles and yards), unlike the rest of Europe (km and m). A range of signs are used on British roads such as destination signposts, signs warning of possible hazards ahead, and regulatory signs instructing road users to perform specific actions." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_a_crossing_for_pedestrians_red_white
+WTra:warning_for_a_crossing_for_pedestrians_red_white rdf:type owl:NamedIndividual ,
+                                                               WTra:Warning_Sign ;
+                                                      owl:sameAs WTra:warning_for_a_crossing_for_pedestrians_red_yellow ;
+                                                      WTra:applicableTo WTra:driver ;
+                                                      WTra:hasBackgroundColor WTra:white ;
+                                                      WTra:hasBorderColor WTra:red ;
+                                                      WTra:hasForm WTra:triangle ;
+                                                      WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-pedestrian-crossing.png" ;
+                                                      WTra:hasLegalRegulations "The drivers have to reduce the speed and prepare to give priority to pedestrian on the zebra crossing." ;
+                                                      rdfs:comment "This traffic sign warns for a pedestrian crossing. The traffic sign is used at crossings that are difficult to see or on roads with a high speed. Drivers must give priority to pedestrians on the zebra crossing." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_a_crossing_for_pedestrians_red_yellow
+WTra:warning_for_a_crossing_for_pedestrians_red_yellow rdf:type owl:NamedIndividual ,
+                                                                WTra:Warning_Sign ;
+                                                       WTra:applicableTo WTra:driver ;
+                                                       WTra:hasBackgroundColor WTra:yellow ;
+                                                       WTra:hasBorderColor WTra:red ;
+                                                       WTra:hasForm WTra:triangle ;
+                                                       WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/warning/warning-pedestrian-crossing.png" ;
+                                                       WTra:hasLegalRegulations "The drivers have to reduce the speed and prepare to give priority to pedestrian on the zebra crossing." ;
+                                                       rdfs:comment "This traffic sign warns for a pedestrian crossing. The traffic sign is used at crossings that are difficult to see or on roads with a high speed. Drivers must give priority to pedestrians on the zebra crossing." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_a_traffic_light_diamond
+WTra:warning_for_a_traffic_light_diamond rdf:type owl:NamedIndividual ,
+                                                  WTra:Warning_Sign ;
+                                         owl:sameAs WTra:warning_for_a_traffic_light_red_white ,
+                                                    WTra:warning_for_a_traffic_light_red_yellow ;
+                                         WTra:applicableTo WTra:driver ;
+                                         WTra:hasBackgroundColor WTra:yellow ;
+                                         WTra:hasBorderColor WTra:black ;
+                                         WTra:hasForm WTra:diamond ;
+                                         WTra:hasImageLink "https://traffic-rules.com/img/europe/ie/signs/warning/warning-traffic-lights.png" ;
+                                         WTra:hasLegalRegulations "The driver must be careful. The sign indicates that follows a intersection directed by traffic lights." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_a_traffic_light_red_white
+WTra:warning_for_a_traffic_light_red_white rdf:type owl:NamedIndividual ,
+                                                    WTra:Warning_Sign ;
+                                           owl:sameAs WTra:warning_for_a_traffic_light_red_yellow ;
+                                           WTra:applicableTo WTra:driver ;
+                                           WTra:hasBackgroundColor WTra:white ;
+                                           WTra:hasBorderColor WTra:red ;
+                                           WTra:hasForm WTra:triangle ;
+                                           WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-traffic-lights.png" ;
+                                           WTra:hasLegalRegulations "The driver must be careful. The sign indicates that follows a intersection directed by traffic lights." ;
+                                           rdfs:comment "This traffic sign warns that there are traffic lights ahead. Watch out for the traffic light and make sure you can stop on time." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_a_traffic_light_red_yellow
+WTra:warning_for_a_traffic_light_red_yellow rdf:type owl:NamedIndividual ,
+                                                     WTra:Warning_Sign ;
+                                            WTra:applicableTo WTra:driver ;
+                                            WTra:hasBackgroundColor WTra:yellow ;
+                                            WTra:hasBorderColor WTra:red ;
+                                            WTra:hasForm WTra:triangle ;
+                                            WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-traffic-lights.png" ;
+                                            WTra:hasLegalRegulations "The driver must be careful. The sign indicates that follows a intersection directed by traffic lights." ;
+                                            rdfs:comment "This traffic sign warns that there are traffic lights ahead. Watch out for the traffic light and make sure you can stop on time." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_children_red_white
+WTra:warning_for_children_red_white rdf:type owl:NamedIndividual ,
+                                             WTra:Warning_Sign ;
+                                    owl:sameAs WTra:warning_for_children_red_yellow ;
+                                    WTra:applicableTo WTra:driver ;
+                                    WTra:hasBackgroundColor WTra:white ;
+                                    WTra:hasBorderColor WTra:red ;
+                                    WTra:hasForm WTra:triangle ;
+                                    WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-children.png" ;
+                                    WTra:hasLegalRegulations "The drivers have to reduce the speed and drive very carefully as it is a zone were children can pass the road." ;
+                                    rdfs:comment "This traffic sign warns that this road is often used by children. Slow down and watch out for children playing. The traffic sign is placed near schools and playgrounds." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_children_red_yellow
+WTra:warning_for_children_red_yellow rdf:type owl:NamedIndividual ,
+                                              WTra:Warning_Sign ;
+                                     WTra:applicableTo WTra:driver ;
+                                     WTra:hasBackgroundColor WTra:yellow ;
+                                     WTra:hasBorderColor WTra:red ;
+                                     WTra:hasForm WTra:triangle ;
+                                     WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/warning/warning-children.png" ;
+                                     WTra:hasLegalRegulations "The drivers have to reduce the speed and drive very carefully as it is a zone were children can pass the road." ;
+                                     rdfs:comment "This traffic sign warns that this road is often used by children. Slow down and watch out for children playing. The traffic sign is placed near schools and playgrounds." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_falling_materials
+WTra:warning_for_falling_materials rdf:type owl:NamedIndividual ,
+                                            WTra:Safety_Sign ;
+                                   WTra:hasImageLink "https://traffic-rules.com/img/international/safety-signs/warning-falling-parts.png" .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_falling_off
+WTra:warning_for_falling_off rdf:type owl:NamedIndividual ,
+                                      WTra:Safety_Sign ;
+                             WTra:hasImageLink "https://traffic-rules.com/img/international/safety-signs/warning-falling.png" .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_flammable_materials
+WTra:warning_for_flammable_materials rdf:type owl:NamedIndividual ,
+                                              WTra:Safety_Sign ;
+                                     WTra:hasImageLink "https://traffic-rules.com/img/international/safety-signs/warning-flammable.png" .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_toxic_substances
+WTra:warning_for_toxic_substances rdf:type owl:NamedIndividual ,
+                                           WTra:Safety_Sign ;
+                                  WTra:hasImageLink "https://traffic-rules.com/img/international/safety-signs/warning-poisonous.png" .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_traffic_jams_red_black
+WTra:warning_for_traffic_jams_red_black rdf:type owl:NamedIndividual ,
+                                                 WTra:Warning_Sign ;
+                                        owl:sameAs WTra:warning_for_traffic_jams_red_white ;
+                                        WTra:applicableTo WTra:driver ;
+                                        WTra:hasBackgroundColor WTra:black ;
+                                        WTra:hasBorderColor WTra:red ;
+                                        WTra:hasForm WTra:triangle ;
+                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/fi/signs/warning/warning-traffic-que.png" ;
+                                        WTra:hasLegalRegulations "The drivers are attentioned to drive carrefully and to have patient as it follows a zone were usually is very crowded." ;
+                                        rdfs:comment "This traffic sign warns that there is an increased chance of traffic jams. Keep a safe distance from the vehicle in front of you, because the traffic can suddenly slow down." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_traffic_jams_red_white
+WTra:warning_for_traffic_jams_red_white rdf:type owl:NamedIndividual ,
+                                                 WTra:Warning_Sign ;
+                                        owl:sameAs WTra:warning_for_traffic_jams_red_yellow ;
+                                        WTra:applicableTo WTra:driver ;
+                                        WTra:hasBackgroundColor WTra:white ;
+                                        WTra:hasBorderColor WTra:red ;
+                                        WTra:hasForm WTra:triangle ;
+                                        WTra:hasImageLink "https://traffic-rules.com/img/europe/ro/signs/warning/warning-traffic-que.png" ;
+                                        WTra:hasLegalRegulations "The drivers are attentioned to drive carrefully and to have patient as it follows a zone were usually is very crowded" ;
+                                        rdfs:comment "This traffic sign warns that there is an increased chance of traffic jams. Keep a safe distance from the vehicle in front of you, because the traffic can suddenly slow down." .
+
+
+###  https://github.com/danCazacu/WTra#warning_for_traffic_jams_red_yellow
+WTra:warning_for_traffic_jams_red_yellow rdf:type owl:NamedIndividual ,
+                                                  WTra:Warning_Sign ;
+                                         WTra:applicableTo WTra:driver ;
+                                         WTra:hasBackgroundColor WTra:yellow ;
+                                         WTra:hasBorderColor WTra:red ;
+                                         WTra:hasForm WTra:triangle ;
+                                         WTra:hasImageLink "https://traffic-rules.com/img/europe/gr/signs/warning/warning-traffic-que.png" ;
+                                         WTra:hasLegalRegulations "The drivers are attentioned to drive carrefully and to have patient as it follows a zone were usually is very crowded" ;
+                                         rdfs:comment "This traffic sign warns that there is an increased chance of traffic jams. Keep a safe distance from the vehicle in front of you, because the traffic can suddenly slow down." .
+
+
+###  https://github.com/danCazacu/WTra#white
+WTra:white rdf:type owl:NamedIndividual ,
+                    WTra:Color .
+
+
+###  https://github.com/danCazacu/WTra#yellow
+WTra:yellow rdf:type owl:NamedIndividual ,
+                     WTra:Color .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( owl:Thing
+                WTra:Color
+                WTra:Country
+                WTra:Country_Code
+                WTra:Information_Sign
+                WTra:Mandatory_Sign
+                WTra:Person
+                WTra:Priority_Sign
+                WTra:Prohibitory_Sign
+                WTra:Road_Sign
+                WTra:Safety_Sign
+                WTra:Shape
+                WTra:Signs
+                WTra:Warning_Sign
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
