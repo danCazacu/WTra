@@ -5,6 +5,7 @@ import com.wtra.client.entity.Location;
 import com.wtra.client.entity.Sign;
 import com.wtra.client.entity.SignFromVideo;
 import com.wtra.client.entity.Video;
+import com.wtra.client.pojo.VideoPOJO;
 import com.wtra.client.service.DatabaseService;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -57,14 +58,15 @@ public class UploadsController {
             return "index";
         }
         try {
-            Map<String,Object> videosFromDB = DatabaseService.getVideos(email);
-            List<Video> videos  = new ArrayList<Video>();
+            //Map<String,Object> videosFromDB = DatabaseService.getVideos(email);
+            List<VideoPOJO> videosFromDB = DatabaseService.getVideos(email);
+            List<Video> videos  = new ArrayList<>();
 
-            for (String videoName : videosFromDB.keySet()) {
+            for (VideoPOJO videoPOJO : videosFromDB) {
 
                 Video video = new Video();
 
-                JSONObject jObject = new JSONObject(videosFromDB.get(videoName).toString());
+                JSONObject jObject = new JSONObject(videoPOJO.getData());
 
                 video.setDuration(Double.valueOf(jObject.get("duration").toString()));
                 video.setName(jObject.get("name").toString());
