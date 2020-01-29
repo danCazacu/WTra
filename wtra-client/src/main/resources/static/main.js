@@ -1,12 +1,14 @@
-const home = document.getElementById('Home');
-const news = document.getElementById('News');
-const contact = document.getElementById('Contact');
-const about = document.getElementById('About');
-const logout = document.getElementById('Logout');
+const home = document.getElementById('home');
+const yourUploads = document.getElementById('yourUploads');
+const trafficSigns = document.getElementById('trafficSigns');
+const contact = document.getElementById('contact');
+const about = document.getElementById('about');
+const logout = document.getElementById('logout');
 
 function highlight(button) {
     home.className = "inactive";
-    news.className = "inactive";
+    yourUploads.className = "inactive";
+    trafficSigns.className = "inactive";
     contact.className = "inactive";
     about.className = "inactive";
     logout.className = "inactive";
