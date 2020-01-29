@@ -20,9 +20,10 @@
     <a id="logout" href="/login" onclick="highlight(this)">Log out</a>
 </div>
 <!-- partial:index.partial.html -->
-<form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+
+<form action="/uploadFile" method="POST" enctype="multipart/form-data" id="uploadForm">
     <input type="file" id="fileUpload" name="video">
-    <p id="fileUploadText">Drag your files here or click in this area.</p>
+    <p id="fileUploadText" th:text="${uploadStatus}">Drag your files here or click in this area.</p>
     <button type="submit">Upload</button>
 </form>
 </body>

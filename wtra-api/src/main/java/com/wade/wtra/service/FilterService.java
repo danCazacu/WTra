@@ -5,12 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class FilterService<T> {
 
-    private List<String> supportedMediaTypes = Collections.singletonList(MediaType.APPLICATION_JSON_VALUE);
+    private List<String> supportedMediaTypes = Arrays.asList(MediaType.APPLICATION_JSON_VALUE, MediaType.ALL_VALUE);
 
     public ResponseEntity<T> filter(HttpServletRequest request) {
         if(!supportedMediaTypes.contains(request.getHeader("Accept"))) {

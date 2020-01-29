@@ -43,8 +43,8 @@ public class SignsController {
             HttpResponse response = StardogService.execute("select ?country ?signProperty ?signPropertyValue\n" +
                     "WHERE{\n" +
                     "    ?country wtra:hasSign wtra:"+name+".\n" +
-                    "    wtra:begin_of_a_priority_road ?signProperty ?signPropertyValue\n" +
-                    "}");
+                    "    wtra:"+name+" ?signProperty ?signPropertyValue\n" +
+                    "}","false");
             String body = IOUtils.toString(response.getEntity().getContent());
             return new ResponseEntity<>(body, HttpStatus.OK);
         } catch (Exception e) {

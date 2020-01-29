@@ -14,7 +14,7 @@ import static com.wade.wtra.controller.LoginController.INVALID_CREDENTIALS;
 public class LoginService {
 
     public static final String SESSION = "session";
-    public static final int SESSION_TIMEOUT_MIN = 5;
+    public static final int SESSION_TIMEOUT_MIN = 30;
 
     private static Connection connection = new PostgresConnection().getConnection();
 
