@@ -30,7 +30,7 @@ public class DatabaseService {
     public static List<VideoPOJO> getVideos(String email) throws Exception {
         if (connection == null)
             throw new Exception("No database connection. Try later.");
-        PreparedStatement st = connection.prepareStatement("SELECT * FROM videos where email = ?");
+        PreparedStatement st = connection.prepareStatement("SELECT * FROM videos where email = ? and data is not null");
         st.setString(1, email);
         ResultSet rs = st.executeQuery();
         List<VideoPOJO> videos = new ArrayList<>();
