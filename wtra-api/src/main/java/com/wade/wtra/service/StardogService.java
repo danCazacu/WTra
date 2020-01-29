@@ -8,7 +8,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 public class StardogService {
 
-    public static final String BASE_URL = "ec2-34-253-183-231.eu-west-1.compute.amazonaws.com";
+    public static final String BASE_URL = "ec2-18-203-95-141.eu-west-1.compute.amazonaws.com";
     public static final String STARDOG_ENDPOINT = "http://"+BASE_URL+":5820/wtra/query";
     public static final String JSON_LD_CONTENT_TYPE = "application/sparql-results+json";
     private static final HttpClient client = new DefaultHttpClient();
