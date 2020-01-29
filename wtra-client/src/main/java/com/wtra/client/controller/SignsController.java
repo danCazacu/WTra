@@ -24,6 +24,7 @@ import static com.wtra.client.controller.HomeController.API_INSTANCE;
 import static com.wtra.client.controller.LoginController.TOKEN;
 import static com.wtra.client.entity.Sign.*;
 import static com.wtra.client.service.AuthenticationService.checkToken;
+import static com.wtra.client.service.AuthenticationService.invalidateSession;
 
 @Controller
 public class SignsController {
@@ -34,6 +35,10 @@ public class SignsController {
 
     @RequestMapping("/signs")
     public String signs(Model model, @CookieValue(value = TOKEN, defaultValue = "") String token, HttpServletResponse httpServletResponse) {
+        if(token.isEmpty()) {
+            invalidateSession(httpServletResponse);
+            return "main";
+        }
         if (!token.isEmpty()) {
             String retur = checkToken(token, httpServletResponse, "signs");
             if (!retur.equals("signs"))
