@@ -110,7 +110,7 @@ public class Sign {
     public static Sign createSign(String signName, Map<String, Set<String>> signProperties) {
 
         Sign sign = new Sign();
-        sign.setName(signName.replace("_", " ").substring(0, 1).toUpperCase().concat(signName.substring(1)));
+        sign.setName(signName.substring(0, 1).toUpperCase().concat(signName.substring(1).replace("_", " ")));
         sign.setBackgroundColor(getStringFromSet(signProperties, hasBackgroundColor));
         sign.setBorderColor(getStringFromSet(signProperties, hasBorderColor));
         sign.setForm(getStringFromSet(signProperties, hasForm));
@@ -127,9 +127,12 @@ public class Sign {
     private static String getStringFromSet(Map<String, Set<String>> signProperties, String property) {
         String string = "";
         for (String s : signProperties.get(property)) {
-
-            s = s.substring(0, 1).toUpperCase() + s.substring(1);
-            string += s.replace("_", " ") + ", ";
+            if (!property.equals(hasImageLink)) {
+                s = s.substring(0, 1).toUpperCase() + s.substring(1);
+                string += s.replace("_", " ") + ", ";
+            } else {
+                string = s + ", ";
+            }
         }
         return string.length() > 1 ? string.substring(0, string.length() - 2) : string;
     }
