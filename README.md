@@ -7,7 +7,7 @@
 
 ### REST Endpoint: http://wtra-api.eu-west-1.elasticbeanstalk.com/
 
-### You can check our progress for this project here: https://andreeaprodan.github.io/
+### You can check our technical report here: https://andreeaprodan.github.io/
 
 ### Personal thoughts: https://dancazacu.github.io/
 
